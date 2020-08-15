@@ -60,34 +60,34 @@
 > CONTINUE 再仔细琢磨下结构，精简优化相关配置和层级....  
 
 #### 图鉴  or https://gitee.com/heyclock/mvvm_modularization/blob/master/README.md    
-<img src="https://gitee.com/heyclock/mvvm_modularization/raw/master/zdoc/pic/1.png" width="210" height="400"/>
-<img src="https://gitee.com/heyclock/mvvm_modularization/raw/master/zdoc/pic/2.png" width="210" height="400"/>
-<img src="https://gitee.com/heyclock/mvvm_modularization/raw/master/zdoc/pic/3.png" width="210" height="400"/>
-<img src="https://gitee.com/heyclock/mvvm_modularization/raw/master/zdoc/pic/4.png" width="210" height="400"/>
-<img src="https://gitee.com/heyclock/mvvm_modularization/raw/master/zdoc/pic/5.png" width="210" height="400"/>
-<img src="https://gitee.com/heyclock/mvvm_modularization/raw/master/zdoc/pic/6.gif" width="230" height="400"/>
-<img src="https://gitee.com/heyclock/mvvm_modularization/raw/master/zdoc/pic/7.png" width="210" height="400"/>
-<img src="https://gitee.com/heyclock/mvvm_modularization/raw/master/zdoc/pic/7.gif" width="230" height="400"/>
-<img src="https://gitee.com/heyclock/mvvm_modularization/raw/master/zdoc/pic/navigation.gif" width="200" height="400"/>
-<img src="https://gitee.com/heyclock/mvvm_modularization/raw/master/zdoc/pic/bottom_navigation_neticon.gif" width="200" height="400"/>  
+<img src="zdoc/pic/1.png" width="210" height="400"/>
+<img src="zdoc/pic/2.png" width="210" height="400"/>
+<img src="zdoc/pic/3.png" width="210" height="400"/>
+<img src="zdoc/pic/4.png" width="210" height="400"/>
+<img src="zdoc/pic/5.png" width="210" height="400"/>
+<img src="zdoc/pic/6.gif" width="230" height="400"/>
+<img src="zdoc/pic/7.png" width="210" height="400"/>
+<img src="zdoc/pic/7.gif" width="230" height="400"/>
+<img src="zdoc/pic/navigation.gif" width="200" height="400"/>
+<img src="zdoc/pic/bottom_navigation_neticon.gif" width="200" height="400"/>  
 
 #### 实战第二版(含更多自定义组件，完善路由，完善加载逻辑等，之后会加强结构优化和模拟数据完善)       
-<img src="https://gitee.com/heyclock/mvvm_modularization/raw/master/zdoc/pic/1_com.hl.mvvm.jpg" width="108" height="192"/>
-<img src="https://gitee.com/heyclock/mvvm_modularization/raw/master/zdoc/pic/2_com.hl.mvvm.jpg" width="108" height="192"/>
-<img src="https://gitee.com/heyclock/mvvm_modularization/raw/master/zdoc/pic/3_com.hl.mvvm.png" width="108" height="192"/>
-<img src="https://gitee.com/heyclock/mvvm_modularization/raw/master/zdoc/pic/4_com.hl.mvvm.jpg" width="108" height="192"/>
-<img src="https://gitee.com/heyclock/mvvm_modularization/raw/master/zdoc/pic/5_com.hl.mvvm.jpg" width="108" height="192"/>
-<img src="https://gitee.com/heyclock/mvvm_modularization/raw/master/zdoc/pic/6_com.hl.mvvm.jpg" width="108" height="192"/>
-<img src="https://gitee.com/heyclock/mvvm_modularization/raw/master/zdoc/pic/7_com.hl.mvvm.jpg" width="108" height="192"/>
-<img src="https://gitee.com/heyclock/mvvm_modularization/raw/master/zdoc/pic/8_com.hl.mvvm.jpg" width="108" height="192"/>
-<img src="https://gitee.com/heyclock/mvvm_modularization/raw/master/zdoc/pic/9_com.hl.mvvm.jpg" width="108" height="192"/>
-<img src="https://gitee.com/heyclock/mvvm_modularization/raw/master/zdoc/pic/10_com.hl.mvvm.jpg" width="108" height="192"/>
-<img src="https://gitee.com/heyclock/mvvm_modularization/raw/master/zdoc/pic/11_com.hl.mvvm.jpg" width="108" height="192"/>
-<img src="https://gitee.com/heyclock/mvvm_modularization/raw/master/zdoc/pic/12_com.hl.mvvm.jpg" width="108" height="192"/>
-<img src="https://gitee.com/heyclock/mvvm_modularization/raw/master/zdoc/pic/13_com.hl.mvvm.jpg" width="108" height="192"/>
-<img src="https://gitee.com/heyclock/mvvm_modularization/raw/master/zdoc/pic/14_com.hl.mvvm.jpg" width="108" height="192"/>
-<img src="https://gitee.com/heyclock/mvvm_modularization/raw/master/zdoc/pic/15_com.hl.mvvm.jpg" width="108" height="192"/>
-<img src="https://gitee.com/heyclock/mvvm_modularization/raw/master/zdoc/pic/16_com.hl.mvvm.jpg" width="108" height="192"/>
-<img src="https://gitee.com/heyclock/mvvm_modularization/raw/master/zdoc/pic/17_com.hl.mvvm.jpg" width="108" height="192"/>  
+<img src="zdoc/pic/1_com.hl.mvvm.jpg" width="108" height="192"/>
+<img src="zdoc/pic/2_com.hl.mvvm.jpg" width="108" height="192"/>
+<img src="zdoc/pic/3_com.hl.mvvm.png" width="108" height="192"/>
+<img src="zdoc/pic/4_com.hl.mvvm.jpg" width="108" height="192"/>
+<img src="zdoc/pic/5_com.hl.mvvm.jpg" width="108" height="192"/>
+<img src="zdoc/pic/6_com.hl.mvvm.jpg" width="108" height="192"/>
+<img src="zdoc/pic/7_com.hl.mvvm.jpg" width="108" height="192"/>
+<img src="zdoc/pic/8_com.hl.mvvm.jpg" width="108" height="192"/>
+<img src="zdoc/pic/9_com.hl.mvvm.jpg" width="108" height="192"/>
+<img src="zdoc/pic/10_com.hl.mvvm.jpg" width="108" height="192"/>
+<img src="zdoc/pic/11_com.hl.mvvm.jpg" width="108" height="192"/>
+<img src="zdoc/pic/12_com.hl.mvvm.jpg" width="108" height="192"/>
+<img src="zdoc/pic/13_com.hl.mvvm.jpg" width="108" height="192"/>
+<img src="zdoc/pic/14_com.hl.mvvm.jpg" width="108" height="192"/>
+<img src="zdoc/pic/15_com.hl.mvvm.jpg" width="108" height="192"/>
+<img src="zdoc/pic/16_com.hl.mvvm.jpg" width="108" height="192"/>
+<img src="zdoc/pic/17_com.hl.mvvm.jpg" width="108" height="192"/>  
 
 #### 参与贡献
