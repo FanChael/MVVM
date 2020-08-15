@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/little_gray"
+        tools:context=".example.RereshLayoutFragment">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/ftf_tv"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@drawable/tablayout_bg_shape"
+            android:gravity="center"
+            android:text="顶部视图"
+            android:textColor="@color/colorAccent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.hl.lib_refreshlayout.view.HLRefreshLayout
+            android:id="@+id/ftf_ref"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ftf_tv">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/ftf_rv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </com.hl.lib_refreshlayout.view.HLRefreshLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

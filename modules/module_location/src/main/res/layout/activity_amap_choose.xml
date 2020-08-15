@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="amapEvent"
+            type="com.hl.module_location.view.event.AmapChooseEventHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.AmapChooseActivity">
+
+        <!--        顶部搜索-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/amc_searchRoot"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/amc_cityName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:onClick="@{() -> amapEvent.citySelect()}"
+                android:text="定位中"
+                android:textColor="@color/black_little"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/amc_cityChooseIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="3dp"
+                android:onClick="@{() -> amapEvent.citySelect()}"
+                android:src="@drawable/add_icon_pull"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/amc_cityName"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--            搜索框-->
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/amc_searchEditorRoot"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/gray_solid_big_cornner_shape"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/amc_cityChooseIcon"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/amc_searchIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:src="@drawable/add_icon_search"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <!--                <androidx.appcompat.widget.AppCompatEditText-->
+                <!--                    android:id="@+id/amc_searchView"-->
+                <!--                    android:layout_width="0dp"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:layout_marginLeft="3dp"-->
+                <!--                    android:background="@null"-->
+                <!--                    android:hint="请输入收货地址"-->
+                <!--                    android:imeOptions="actionSearch"-->
+                <!--                    android:inputType="text"-->
+                <!--                    android:maxLines="1"-->
+                <!--                    android:textSize="14sp"-->
+                <!--                    app:layout_constraintEnd_toEndOf="parent"-->
+                <!--                    app:layout_constraintStart_toEndOf="@+id/amc_searchIcon"-->
+                <!--                    app:layout_constraintTop_toTopOf="parent" />-->
+
+                <androidx.appcompat.widget.AppCompatAutoCompleteTextView
+                    android:id="@+id/amc_searchView"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="3dp"
+                    android:layout_marginRight="5dp"
+                    android:background="@null"
+                    android:completionThreshold="1"
+                    android:dropDownVerticalOffset="10dip"
+                    android:hint="请输入收货地址"
+                    android:imeOptions="actionSearch"
+                    android:inputType="text|textAutoComplete"
+                    android:maxLength="20"
+                    android:maxLines="1"
+                    android:paddingLeft="20.0dip"
+                    android:paddingRight="37.0dip"
+                    android:textColor="#000000"
+                    android:textColorHint="#C0C0C0"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/amc_searchIcon"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--        地图-->
+        <com.amap.api.maps.MapView
+            android:id="@+id/amc_mapView"
+            android:layout_width="match_parent"
+            android:layout_height="290dp"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/amc_searchRoot" />
+
+        <!--        地图列表-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/amc_mapRoot"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@drawable/white_top_corner_shape"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/amc_mapView">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/amc_locationList"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

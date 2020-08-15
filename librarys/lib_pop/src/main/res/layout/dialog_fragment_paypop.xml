@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/white_top_corner_shape"
+    tools:context=".example.PopTestActivity">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/dfpp_payitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="选择支付方式"
+        android:textColor="@color/black_little"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/dfpp_payClose"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="15dp"
+        android:src="@drawable/pay_close"
+        app:layout_constraintBottom_toBottomOf="@+id/dfpp_payitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/dfpp_payitle" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/dfpp_payType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="40dp"
+        android:text="请选择运费支付方式："
+        android:textColor="@color/deep_gray"
+        android:textSize="14sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dfpp_payitle" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/dfpp_payTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="40dp"
+        android:text="运费自理："
+        android:textColor="@color/black_little"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toStartOf="@+id/dfpp_payValue"
+        app:layout_constraintTop_toBottomOf="@+id/dfpp_payitle" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/dfpp_payValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="15dp"
+        android:text="8元"
+        android:textColor="@color/light_green"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dfpp_payitle" />
+
+    <!--    支付列表-->
+    <RadioGroup
+        android:id="@+id/dfpp_payChoose"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginRight="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/dfpp_payValue">
+
+        <RadioButton
+            android:id="@+id/dfpp_weChat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@null"
+            android:button="@null"
+            android:drawableLeft="@drawable/pay_img_wechat"
+            android:drawableRight="@drawable/pay_radio_selector"
+            android:drawablePadding="16dp"
+            android:text="微信支付" />
+
+        <RadioButton
+            android:id="@+id/dfpp_alipay"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:background="@null"
+            android:button="@null"
+            android:checked="true"
+            android:drawableLeft="@drawable/pay_img_zhb"
+            android:drawableRight="@drawable/pay_radio_selector"
+            android:drawablePadding="16dp"
+            android:text="支付宝支付" />
+    </RadioGroup>
+
+    <!--        确认支付-->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/dfpp_payNow"
+        style="@style/MaterialComponents.NoCorner.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:gravity="center"
+        android:text="确认支付"
+        android:textColor="@color/white"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        app:backgroundTint="#FF3098EE"
+        app:layout_constraintTop_toBottomOf="@+id/dfpp_payChoose" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,4 @@
+<resources>
+    <string name="text_empty">No data!</string>
+    <string name="text_retry">Something went wrong!\n\nTap to retry</string>
+</resources>

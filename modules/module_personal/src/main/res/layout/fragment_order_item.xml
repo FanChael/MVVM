@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/white_middle_corner_shape"
+    android:paddingBottom="20dp"
+    tools:context=".view.fragment.OrderFragment">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/foi_orderNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:text="领取单号：20192881999200192"
+        android:textColor="@color/black_little"
+        android:textSize="13sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/foi_orderState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="15dp"
+        android:text="活动奖品 - 待发货"
+        android:textColor="@color/middle_green"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/foi_orderPicList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/foi_orderNumber" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/foi_orderPriceValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:layout_marginRight="15dp"
+        android:text="10.00"
+        android:textColor="@color/black_little"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/foi_orderPicList" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/foi_orderPriceTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:layout_marginRight="6dp"
+        android:text="运费自理："
+        android:textColor="@color/black_little"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/foi_orderPriceValue"
+        app:layout_constraintEnd_toStartOf="@+id/foi_orderPriceValue" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/foi_orderPicNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="13dp"
+        android:text="数量：共3款"
+        android:textColor="@color/deep_gray"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/foi_orderPriceValue"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <!--    确认收货/立即评价-->
+    <TextView
+        android:id="@+id/foi_orderSureOrEvaluate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/white_solid_bigcorner_stoke_green_shape"
+        android:includeFontPadding="false"
+        android:paddingLeft="14dp"
+        android:paddingTop="10dp"
+        android:paddingRight="14dp"
+        android:paddingBottom="10dp"
+        android:text="立即评价"
+        android:textColor="@color/middle_green"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/foi_orderPicNumber" />
+
+    <!--    催促发货/查看物流/再次挑战-->
+    <TextView
+        android:id="@+id/foi_cuiWuliuAgain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="12dp"
+        android:background="@drawable/white_solid_bigcorner_stoke_gray_shape"
+        android:includeFontPadding="false"
+        android:paddingLeft="14dp"
+        android:paddingTop="10dp"
+        android:paddingRight="14dp"
+        android:paddingBottom="10dp"
+        android:text="催促发货"
+        android:textColor="@color/black_little"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/foi_orderSureOrEvaluate"
+        app:layout_constraintTop_toBottomOf="@+id/foi_orderPicNumber" />
+
+    <!--    修改收货地址/删除订单-->
+    <TextView
+        android:id="@+id/foi_chagneOrDelte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="12dp"
+        android:background="@drawable/white_solid_bigcorner_stoke_gray_shape"
+        android:includeFontPadding="false"
+        android:paddingLeft="14dp"
+        android:paddingTop="10dp"
+        android:paddingRight="14dp"
+        android:paddingBottom="10dp"
+        android:text="修改收货地址"
+        android:textColor="@color/black_little"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/foi_cuiWuliuAgain"
+        app:layout_constraintTop_toBottomOf="@+id/foi_orderPicNumber" />
+
+    <!--    物流最新一条信息-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/foi_wuliuInfo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="13dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/gray_solid_little_cornner_shape"
+        android:padding="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/foi_chagneOrDelte">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/foi_wuliuIcar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/order_icon_car"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/foi_wuliuMsg"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:text="顺丰快递：您的订单已导入，商家正在通知取件\n预计到达时间：2019-11-05日"
+            android:textColor="@color/black_little"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/foi_wuliuIcar"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

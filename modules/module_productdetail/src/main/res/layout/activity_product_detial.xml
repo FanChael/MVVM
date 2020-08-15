@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="productEvent"
+            type="com.hl.module_productdetail.view.event.ProductDetailEventHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.ProductDetialActivity">
+
+        <!--        播放器控件-->
+        <com.hl.lib_media.view.VideoLayout
+            android:id="@+id/apd_videoLayout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!--        播放暂停按钮-->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/apd_videoPlay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="@{(view) -> productEvent.play(view)}"
+            android:src="@drawable/detail_icon_suspend"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--        顶部返回、标题-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/apd_titleBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/apd_titleBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/detail_icon_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/apd_titleRight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="15dp"
+                android:text="商品提供（广告商）：xx云"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--            声音按钮-->
+        <com.hl.lib_miniui.view.toggle.SToggleButton
+            android:id="@+id/apd_viedoAudioOnOff"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/video_volum_onoff_toggle_selector"
+            android:checked="true"
+            android:textOff="@null"
+            android:textOn="@null"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/apd_titleBar" />
+
+        <!--                    立即挑战-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/apd_attendNow"
+            style="@style/MaterialComponents.MiniCorner.Button"
+            android:layout_width="wrap_content"
+            android:layout_height="36dp"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="28dp"
+            android:gravity="center"
+            android:onClick="@{()->productEvent.challengeNow()}"
+            android:text="立即挑战"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:backgroundTint="#FF3098EE"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!--        如何获取信息-->
+        <com.hl.lib_miniui.view.texts.Text_Value
+            android:id="@+id/apd_howToTarget"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="5dp"
+            android:layout_marginBottom="28dp"
+            android:gravity="left"
+            android:text="走10000步免费得  限时2天"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/apd_attendNow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:value_keycolor="@color/light_green"
+            app:value_keysize="22sp"
+            app:value_keyword="10000" />
+
+        <!--        价格-->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/apd_priceInof"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="10dp"
+            android:text="京东/天猫：￥1000"
+            android:textColor="@color/white"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toTopOf="@+id/apd_attendNow"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!--        商品名称-->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/apd_nameInfo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginBottom="10dp"
+            android:text="联想7寸触屏平板电脑，颜色随机发放"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/apd_priceInof"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <!--                    分享-->
+        <com.hl.lib_miniui.view.texts.Text_Icon
+            android:id="@+id/fh_share"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="45dp"
+            android:orientation="vertical"
+            android:text="5000分享"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            app:icon_drawable="@drawable/detail_icon_share"
+            app:layout_constraintBottom_toTopOf="@+id/apd_nameInfo"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!--                    评论-->
+        <com.hl.lib_miniui.view.texts.Text_Icon
+            android:id="@+id/fh_commentNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="35dp"
+            android:orientation="vertical"
+            android:text="1.5w评论"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            app:icon_drawable="@drawable/detail_icon_comment"
+            app:layout_constraintBottom_toTopOf="@+id/fh_share"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!--                    参加-->
+        <com.hl.lib_miniui.view.texts.Text_Icon
+            android:id="@+id/fh_attendNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:layout_marginBottom="35dp"
+            android:orientation="vertical"
+            android:text="1.4w参加"
+            android:textColor="@color/white"
+            android:textSize="10sp"
+            app:icon_drawable="@drawable/detail_icon_join"
+            app:layout_constraintBottom_toTopOf="@+id/fh_commentNumber"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

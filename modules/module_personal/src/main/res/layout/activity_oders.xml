@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.activity.OdersActivity">
+
+        <!--       保证任何宽度都会均分 app:tabMaxWidth="0dp"-->
+        <com.hl.lib_miniui.view.tablayout.HlIndicatorTablayout
+            android:id="@+id/aod_ordersTitles"
+            style="@style/TabLayoutThemeBg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:background="@drawable/white_bottom_corner_shape"
+            app:layout_constraintTop_toTopOf="parent"
+            app:s_tab_text_selected_size="14sp"
+            app:s_tab_text_size="13sp"
+            app:tabGravity="fill"
+            app:tabMaxWidth="0dp"
+            app:tabMode="fixed"
+            app:tabPaddingBottom="-1dp"
+            app:tabPaddingTop="-1dp" />
+
+        <!--        多种订单-->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/aod_orderListVp2"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/aod_ordersTitles" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

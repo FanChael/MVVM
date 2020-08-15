@@ -1,0 +1,4 @@
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="ExtraTranslation">
+    <string name="app_name_release">MVVM组件化架构</string>
+    <string name="app_name_debug">MVVM组件化架构测试包</string>
+</resources>

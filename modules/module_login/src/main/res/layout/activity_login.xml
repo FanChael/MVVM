@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="loginHandler"
+            type="com.hl.modules_login.view.event.LoginEventHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.LoginActivity">
+
+        <!--        退出-->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/al_exitIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:onClick="@{()->loginHandler.exit()}"
+            android:src="@drawable/login_icon_back"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/al_logoIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/login_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/al_exitIv" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/al_biaoyu"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="More steps，dream closer!"
+            android:textColor="@color/black_little"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/al_logoIv" />
+
+        <!--        登录相关信息-->
+        <!--            手机号-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/al_inputPhoneRoot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="37dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginRight="37dp"
+            app:layout_constraintTop_toBottomOf="@+id/al_biaoyu">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/al_phoneNumber"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="手机号"
+                android:inputType="phone"
+                android:maxLength="11"
+                android:lines="1"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/al_phoneClear"
+                app:layout_constraintEnd_toStartOf="@+id/al_phoneClear"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/al_phoneClear" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/al_phoneClear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->loginHandler.phoneClear()}"
+                android:src="@drawable/login_icon_close"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/deep_more_gray"
+                app:layout_constraintEnd_toEndOf="@+id/al_phoneClear"
+                app:layout_constraintStart_toStartOf="@+id/al_phoneNumber"
+                app:layout_constraintTop_toBottomOf="@+id/al_phoneClear" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--            验证码-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/al_vericodeRoot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="37dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="37dp"
+            app:layout_constraintTop_toBottomOf="@+id/al_inputPhoneRoot">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/al_vericode"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="验证码"
+                android:inputType="number"
+                android:maxLength="6"
+                android:lines="1"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/al_vericodeGet"
+                app:layout_constraintEnd_toStartOf="@+id/al_vericodeGet"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/al_vericodeGet" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/al_vericodeGet"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{()->loginHandler.getVerifyCode()}"
+                android:text="获取验证码"
+                android:textColor="@color/light_green"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/deep_more_gray"
+                app:layout_constraintEnd_toEndOf="@+id/al_vericodeGet"
+                app:layout_constraintStart_toStartOf="@+id/al_vericode"
+                app:layout_constraintTop_toBottomOf="@+id/al_vericodeGet" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--            邀请码-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/al_inviteRoot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="37dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="37dp"
+            app:layout_constraintTop_toBottomOf="@+id/al_vericodeRoot">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/al_inviteCode"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@null"
+                android:hint="邀请码"
+                android:inputType="number"
+                android:lines="1"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/al_inviteTip"
+                app:layout_constraintEnd_toStartOf="@+id/al_inviteTip"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/al_inviteTip" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/al_inviteTip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="（可不填）"
+                android:textColor="@color/deep_gray"
+                android:textSize="13sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="10dp"
+                android:background="@color/deep_more_gray"
+                app:layout_constraintEnd_toEndOf="@+id/al_inviteTip"
+                app:layout_constraintStart_toStartOf="@+id/al_inviteCode"
+                app:layout_constraintTop_toBottomOf="@+id/al_inviteTip" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--        登录按钮-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/al_loginBtn"
+            style="@style/MaterialComponents.Big.Button"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="40dp"
+            android:gravity="center"
+            android:onClick="@{(view)->loginHandler.clickLogin(view)}"
+            android:text="登录"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:backgroundTint="#FF3098EE"
+            app:layout_constraintEnd_toEndOf="@+id/al_inviteRoot"
+            app:layout_constraintStart_toStartOf="@+id/al_inviteRoot"
+            app:layout_constraintTop_toBottomOf="@+id/al_inviteRoot" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

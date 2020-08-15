@@ -1,0 +1,42 @@
+apply plugin: 'com.android.library'
+
+android {
+    def versionConfig = rootProject.extensions.getByName("ext").versions
+    compileSdkVersion versionConfig.compileSdkVersion
+    buildToolsVersion versionConfig.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion versionConfig.minSdkVersion
+        targetSdkVersion versionConfig.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+        release {
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api rootProject.ext.dependencies["junit"]
+    api rootProject.ext.dependencies["ext"]
+    api rootProject.ext.dependencies["gson"]
+    api rootProject.ext.dependencies["cookjar"]
+    api rootProject.ext.dependencies["retrofit"]
+    api rootProject.ext.dependencies["converter-gson"]
+    api rootProject.ext.dependencies["adapter-rxjava2"]
+    api rootProject.ext.dependencies["rxjava"]
+    api rootProject.ext.dependencies["rxandroid"]
+
+    // 注解依赖
+    implementation project(path: ':librarys:lib_anotation')
+}

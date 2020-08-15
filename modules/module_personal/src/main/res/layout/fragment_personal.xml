@@ -1,0 +1,373 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--    暂时不想xml里面写东东-->
+    <data>
+
+        <variable
+            name="personalHanler"
+            type="com.hl.modules_personal.view.event.PersonalEventHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.PersonalFragment">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/fp_titleBg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/personal_bg"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--        官方圆角头像拔来的源码-->
+        <com.hl.lib_miniui.view.imageview.CircleImageViewFromGoogle
+            android:id="@+id/fp_headerIv"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_marginLeft="15dp"
+            android:src="@drawable/personal_img_defualt"
+            app:civ_border_color="@color/white"
+            app:civ_border_width="1dp"
+            app:layout_constraintBottom_toBottomOf="@+id/fp_titleBg"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/fp_titleBg" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/fp_nameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="5dp"
+            android:onClick="@{(view) -> personalHanler.OnClickNameTv(view)}"
+            android:text="点击登录"
+            android:textColor="@color/white"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/fp_headerIv"
+            app:layout_constraintTop_toTopOf="@+id/fp_headerIv" />
+
+        <!--        邀请码-->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/fp_InviteNumberTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="12dp"
+            android:layout_marginTop="13dp"
+            android:text="邀请码: ------"
+            android:textColor="@color/white"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@+id/fp_headerIv"
+            app:layout_constraintTop_toBottomOf="@+id/fp_nameTv" />
+
+        <!--        复制到剪切板-->
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/fp_copyBordTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:background="@drawable/white_middle_corner_shape"
+            android:includeFontPadding="false"
+            android:paddingLeft="10dp"
+            android:paddingTop="4dp"
+            android:paddingRight="10dp"
+            android:paddingBottom="4dp"
+            android:text="复制"
+            android:textColor="@color/middle_white"
+            android:textSize="12sp"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="@+id/fp_InviteNumberTv"
+            app:layout_constraintStart_toEndOf="@+id/fp_InviteNumberTv"
+            app:layout_constraintTop_toTopOf="@+id/fp_InviteNumberTv" />
+
+        <!--        设置按钮-->
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/fp_settingIv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:onClick="@{() -> personalHanler.toSettingPage()}"
+            android:src="@drawable/personal_icon_settng"
+            app:layout_constraintBottom_toTopOf="@+id/fp_headerIv"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!--        功能区-->
+        <!--        app:cardBackgroundColor="@color/page_bg_color"-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fp_functionRoot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="22dp"
+            android:background="@drawable/personal_bg_data"
+            app:layout_constraintTop_toBottomOf="@+id/fp_headerIv">
+
+            <View
+                android:id="@+id/fp_middleLinie"
+                android:layout_width="1dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginBottom="35dp"
+                android:background="#fff0f0f0"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--            毛豆余额-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> personalHanler.toMaoDouYuE()}"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/fp_middleLinie"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/fp_onlineValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="1200"
+                    android:textColor="#ff333333"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/fp_onlineTip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="MVVM豆余额"
+                    android:textColor="#ff666666"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <!--            动豆余额-->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="@{() -> personalHanler.toOrder()}"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/fp_middleLinie"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/fp_orderListValue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:text="10"
+                    android:textColor="#ff333333"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/fp_orderListTip"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:text="领取订单"
+                    android:textColor="#ff666666"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--        我的好友-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fp_myfriendRoot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
+            app:layout_constraintTop_toBottomOf="@+id/fp_functionRoot">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/fp_myfriendIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/personal_img_fri"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/fp_myfriendTip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:text="我的好友"
+                android:textColor="@color/black_little"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/fp_myfriendIcon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/fp_myfriendMore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/receive_icon_more"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/deep_more_gray"
+                app:layout_constraintEnd_toEndOf="@+id/fp_myfriendMore"
+                app:layout_constraintStart_toStartOf="@+id/fp_myfriendTip"
+                app:layout_constraintTop_toBottomOf="@+id/fp_myfriendMore" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--        收货地址-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fp_addressRoot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
+            android:onClick="@{() -> personalHanler.toAddress()}"
+            app:layout_constraintTop_toBottomOf="@+id/fp_myfriendRoot">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/fp_addressIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/personal_img_add"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/fp_addressTip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:text="收货地址"
+                android:textColor="@color/black_little"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/fp_addressIcon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/fp_addressMore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/receive_icon_more"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/deep_more_gray"
+                app:layout_constraintEnd_toEndOf="@+id/fp_addressMore"
+                app:layout_constraintStart_toStartOf="@+id/fp_addressTip"
+                app:layout_constraintTop_toBottomOf="@+id/fp_addressMore" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--        在线商城-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fp_onlineShopRoot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
+            app:layout_constraintTop_toBottomOf="@+id/fp_addressRoot">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/fp_onlineShopIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/pay_img_zfb"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/fp_onlineShopTip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:text="在线商城"
+                android:textColor="@color/black_little"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/fp_onlineShopIcon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/fp_onlineShopMore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/receive_icon_more"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/deep_more_gray"
+                app:layout_constraintEnd_toEndOf="@+id/fp_onlineShopMore"
+                app:layout_constraintStart_toStartOf="@+id/fp_onlineShopTip"
+                app:layout_constraintTop_toBottomOf="@+id/fp_onlineShopMore" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--        在线客服-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/fp_onServiceRoot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="15dp"
+            android:onClick="@{() -> personalHanler.toOnlineService()}"
+            app:layout_constraintTop_toBottomOf="@+id/fp_onlineShopRoot">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/fp_onServiceIcon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/personal_img_cst"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/fp_onServiceTip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="14dp"
+                android:text="在线客服"
+                android:textColor="@color/black_little"
+                android:textSize="16sp"
+                app:layout_constraintStart_toEndOf="@+id/fp_onServiceIcon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/fp_onServiceMore"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/receive_icon_more"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="20dp"
+                android:background="@color/deep_more_gray"
+                app:layout_constraintEnd_toEndOf="@+id/fp_onServiceMore"
+                app:layout_constraintStart_toStartOf="@+id/fp_onServiceTip"
+                app:layout_constraintTop_toBottomOf="@+id/fp_onServiceMore" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

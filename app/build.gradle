@@ -1,0 +1,159 @@
+apply plugin: 'com.android.application'
+
+android {
+    // 获取编译环境版本信息 或者类似这种获取方式 rootProject.ext.dependencies["appcompat"]
+    def versionConfig = rootProject.extensions.getByName("ext").versions
+    compileSdkVersion versionConfig.compileSdkVersion
+    buildToolsVersion versionConfig.buildToolsVersion
+
+    defaultConfig {
+        applicationId versionConfig.applicationId
+        minSdkVersion versionConfig.minSdkVersion
+        targetSdkVersion versionConfig.targetSdkVersion
+        versionCode versionConfig.versionCode
+        versionName versionConfig.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        ndk {
+            // 设置支持的SO库架构 - 如果有so库，需要模拟器运行，可能需要配置
+            //            abiFilters 'armeabi', 'armeabi-v7a', 'arm64-v8a', 'x86_64', 'x86'
+            abiFilters 'armeabi-v7a', 'arm64-v8a'//, 'armeabi', 'x86_64', 'x86'
+        }
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+    }
+
+    signingConfigs {
+        release {
+            storeFile file('test.jks')
+            storePassword "testtest"
+            keyAlias "test"
+            keyPassword "testtest"
+        }
+    }
+
+    buildTypes {
+        release {
+            // 开启混淆
+            minifyEnabled true // 开关开启的话，子模块不管是不是关闭都会被混淆
+            // Zipalign优化
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources true
+            // 混淆配置
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            // 签名
+            signingConfig signingConfigs.release
+            // 正式包名称
+            resValue "string", "app_name_s", "@string/app_name_release"
+        }
+        //建议关了debug混淆，影响调试
+        debug {
+            // 开启混淆
+            minifyEnabled true // 开关开启的话，子模块不管是不是关闭都会被混淆
+            // Zipalign优化
+            zipAlignEnabled true
+            // 移除无用的resource文件
+            shrinkResources true
+            // 混淆配置
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            // 签名
+            signingConfig signingConfigs.release
+            // TODO debug包搞个后缀，目前注释掉方便本地调试定位
+            applicationIdSuffix ".debug"
+            // 设置不同的名称
+            resValue "string", "app_name_s", "@string/app_name_debug"
+        }
+    }
+
+    android.applicationVariants.all { variant ->
+        variant.outputs.all {
+            def date = new Date().format("yyyyMMdd", TimeZone.getTimeZone("GMT+08"))
+            if (variant.buildType.name.equals('debug')) {
+                outputFileName = "mvvm_${date}_${versionName}.apk"
+            }
+            if (variant.buildType.name.equals('release')) {
+                outputFileName = "mvvm_${versionName}.apk"
+            }
+        }
+    }
+
+    //    // 配置不同的马甲、渠道信息
+    //    productFlavors {
+    //        dongduoduo {
+    //            manifestPlaceholders = [APP_NAME: "动多多"]
+    //            buildConfigField "String", "BASE_URL", "http://xxxx.xx2.com"
+    //            applicationId "com.hl.dongduoduo"
+    //        }
+    //        // 这些渠道包暂时关闭
+    //        //        huawei {
+    //        //            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "huawei"]
+    //        //        }
+    //        //        xiaomi {
+    //        //            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "xiaomi"]
+    //        //        }
+    //        //        baidu {
+    //        //            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "baidu"]
+    //        //        }
+    //        //        tencent {
+    //        //            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "tencent"]
+    //        //        }
+    //        //        _360 {
+    //        //            manifestPlaceholders = [UMENG_CHANNEL_VALUE: "360"]
+    //        //        }
+    //    }
+
+    sourceSets {
+        main {
+            if (Boolean.valueOf(rootProject.ext.isModule_Home)) {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/debug/AndroidManifest.xml'
+            }
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // modules_home已经用api依赖了base，这里本来不需要再次依赖了的；
+    // 但是如果我们要共用base的资源，还是需要依赖一下，卧槽！
+    implementation project(path: ':librarys:lib_common')
+    // 引入各个模块
+    if (rootProject.ext.isModule_Home) {
+        implementation project(path: ':modules:module_home')
+    }
+    if (rootProject.ext.isModule_Login) {
+        implementation project(path: ':modules:module_login')
+    }
+    if (rootProject.ext.isModule_Personal) {
+        implementation project(path: ':modules:module_personal')
+    }
+    if (rootProject.ext.isModule_Main) {
+        implementation project(path: ':modules:module_main')
+    }
+    if (rootProject.ext.isModule_ProductDetail) {
+        implementation project(path: ':modules:module_productdetail')
+    }
+    if (rootProject.ext.isModule_ShoppingCar) {
+        implementation project(path: ':modules:module_shoppingcart')
+    }
+    if (rootProject.ext.isModule_Location) {
+        implementation project(path: ':modules:module_location')
+    }
+    // Arouter路由注解
+    annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
+}

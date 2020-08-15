@@ -1,0 +1,11 @@
+<resources>
+    <!--    修改文字和图片的间距-->
+    <!--    <dimen name="design_bottom_navigation_margin">20dp</dimen>-->
+    <!--    <dimen name="design_bottom_navigation_icon_size">44dp</dimen>-->
+    <!--    选中时的最大宽度-->
+    <!--    <dimen name="design_bottom_navigation_active_item_max_width">168dp</dimen>-->
+    <!--    未选中的最大宽度-->
+    <!--    <dimen name="design_bottom_navigation_item_max_width">168dp</dimen>-->
+    <!--    高度 默认的底部导航栏的高度是 56dp，我们增加间距4dp=60dp-->
+    <!--    <dimen name="design_bottom_navigation_height">95dp</dimen>-->
+</resources>

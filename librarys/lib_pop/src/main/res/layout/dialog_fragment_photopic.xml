@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/white_top_corner_shape">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/afpp_dcim"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="相册"
+        android:textColor="@color/black_little"
+        android:textSize="16sp"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/afpp_dcimLine"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/line_gray"
+        app:layout_constraintTop_toBottomOf="@+id/afpp_dcim" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/afpp_camera"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:text="拍照"
+        android:textColor="@color/black_little"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@+id/afpp_dcimLine" />
+
+    <View
+        android:id="@+id/afpp_cameraLine"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:background="@color/line_gray"
+        app:layout_constraintTop_toBottomOf="@+id/afpp_camera" />
+
+
+    <!--        取消-->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/afpp_cancel"
+        style="@style/MaterialComponents.NoCorner.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="取消"
+        android:textColor="@color/middle_gray"
+        android:textSize="17sp"
+        app:backgroundTint="#ffffff"
+        app:layout_constraintTop_toBottomOf="@+id/afpp_cameraLine" />
+</androidx.constraintlayout.widget.ConstraintLayout>

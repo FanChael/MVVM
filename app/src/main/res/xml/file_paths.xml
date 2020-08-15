@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<paths>
+    <!--此处的name可以随便取-->
+    <!--    外部存储空间根目录，等同于 Environment.getExternalStorageDirectory()所获取的目录路径；-->
+    <external-path
+        name="external_storage_root"
+        path="."/>
+    <!--    外部存储空间应用私有目录下的files/ 目录，等同于Context.getExternalFilesDir(null) 所获取的目录路径-->
+    <!--    <external-files-path name="document" path="Documents"/>-->
+    <!--    <external-files-path name="download" path="Download" />-->
+    <!--    <external-files-path name="pictures" path="Pictures" />-->
+</paths>

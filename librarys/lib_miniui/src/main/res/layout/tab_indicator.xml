@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tid_textMsg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:includeFontPadding="false"
+        android:textColor="@color/custom_indicator_tablayout_tabs_color_selector"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/tid_indicator"
+        android:layout_width="27dp"
+        android:layout_height="3dp"
+        android:layout_marginTop="6dp"
+        android:background="@drawable/custom_green_indicator_corner_shape"
+        app:layout_constraintEnd_toEndOf="@+id/tid_textMsg"
+        app:layout_constraintStart_toStartOf="@+id/tid_textMsg"
+        app:layout_constraintTop_toBottomOf="@+id/tid_textMsg" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

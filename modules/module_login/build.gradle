@@ -1,0 +1,63 @@
+if (Boolean.valueOf(rootProject.ext.isModule_Login)) {
+    apply plugin: 'com.android.library'
+} else {
+    apply plugin: 'com.android.application'
+}
+
+android {
+    def versionConfig = rootProject.extensions.getByName("ext").versions
+    compileSdkVersion versionConfig.compileSdkVersion
+    buildToolsVersion versionConfig.buildToolsVersion
+
+    defaultConfig {
+        // 作为程序独立运行时才设置AppId
+        if (!Boolean.valueOf(rootProject.ext.isModule_Login)) {
+            applicationId "com.hl.modules_login"
+        }
+        minSdkVersion versionConfig.minSdkVersion
+        targetSdkVersion versionConfig.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            if (!Boolean.valueOf(rootProject.ext.isModule_Login)) {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/debug/AndroidManifest.xml'
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(path: ':librarys:lib_common')
+    // Arouter路由注解
+    annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
+}

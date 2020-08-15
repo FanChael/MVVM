@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="orderInfoEvent"
+            type="com.hl.modules_personal.view.event.OderInfoEventHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.activity.OderInfoActivity">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/aoif_bottom"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!--                顶部物流信息-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/aoif_wuliuInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="1dp"
+                    android:background="@drawable/white_bottom_corner_shape"
+                    android:paddingBottom="16dp"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <!--    物流最新一条信息-->
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/aoif_wuliuIcar"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:src="@drawable/order_icon_car"
+                        app:layout_constraintBottom_toBottomOf="@+id/aoif_logisticsTime"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/aoif_wuliuMsg" />
+
+                    <!--                更多物流信息-->
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/aoif_logistics"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="15dp"
+                        android:src="@drawable/receive_icon_more"
+                        app:layout_constraintBottom_toBottomOf="@+id/aoif_logisticsTime"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/aoif_wuliuMsg" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/aoif_wuliuMsg"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:layout_marginTop="14dp"
+                        android:layout_marginRight="10dp"
+                        android:text="顺丰快递：您的订单已导入，商家正在通知取件，预计到达时间：2019-11-05日"
+                        android:textColor="@color/black_little"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toStartOf="@+id/aoif_logistics"
+                        app:layout_constraintStart_toEndOf="@+id/aoif_wuliuIcar"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/aoif_logisticsTime"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="2020-05-31 16:49:24"
+                        android:textColor="@color/deep_gray"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="@+id/aoif_wuliuMsg"
+                        app:layout_constraintStart_toStartOf="@+id/aoif_wuliuMsg"
+                        app:layout_constraintTop_toBottomOf="@+id/aoif_wuliuMsg" />
+
+                    <View
+                        android:id="@+id/aoif_logisticsLine"
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="14dp"
+                        android:background="@color/deep_more_gray"
+                        app:layout_constraintEnd_toEndOf="@+id/aoif_logistics"
+                        app:layout_constraintStart_toStartOf="@+id/aoif_wuliuIcar"
+                        app:layout_constraintTop_toBottomOf="@+id/aoif_logisticsTime" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/aoif_addressLocationIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:src="@drawable/order_img_add"
+                        app:layout_constraintBottom_toBottomOf="@+id/aoif_address"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/aoif_contactName" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/aoif_contactName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="9dp"
+                        android:layout_marginTop="14dp"
+                        android:text="王先生"
+                        android:textColor="@color/black_little"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@+id/aoif_addressLocationIcon"
+                        app:layout_constraintTop_toBottomOf="@+id/aoif_logisticsLine" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/aoif_contactPhone"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="9dp"
+                        android:layout_marginRight="8dp"
+                        android:ellipsize="end"
+                        android:gravity="left"
+                        android:singleLine="true"
+                        android:text="15xxxxxx"
+                        android:textColor="@color/deep_gray"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/aoif_contactName"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/aoif_contactName" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/aoif_address"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="9dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="20dp"
+                        android:ellipsize="end"
+                        android:gravity="left"
+                        android:singleLine="true"
+                        android:text="四川省凉山州西昌市"
+                        android:textColor="@color/black_little"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/aoif_addressLocationIcon"
+                        app:layout_constraintTop_toBottomOf="@+id/aoif_contactName" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--                商品信息-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/aoif_giftPics"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/white_middle_corner_shape"
+                    android:paddingBottom="20dp"
+                    app:layout_constraintTop_toBottomOf="@+id/aoif_wuliuInfo">
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/aoif_orderPicList"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="15dp"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/aoif_orderPriceValue"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="13dp"
+                        android:layout_marginRight="15dp"
+                        android:text="10.00"
+                        android:textColor="@color/black_little"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/aoif_orderPicList" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/aoif_orderPriceTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="13dp"
+                        android:layout_marginRight="6dp"
+                        android:text="运费自理："
+                        android:textColor="@color/black_little"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/aoif_orderPriceValue"
+                        app:layout_constraintEnd_toStartOf="@+id/aoif_orderPriceValue" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/aoif_orderPicNumber"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="13dp"
+                        android:text="数量：共3款"
+                        android:textColor="@color/deep_gray"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/aoif_orderPriceValue"
+                        app:layout_constraintStart_toStartOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                <!--                在线客服-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/aoif_serviceOnline"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/white_middle_corner_shape"
+                    android:padding="14dp"
+                    app:layout_constraintTop_toBottomOf="@+id/aoif_giftPics">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/aoif_serviceIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@drawable/order_img_chat"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/aoif_serviceTip"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:text="在线客服"
+                        android:textColor="@color/black_little"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/aoif_serviceIcon"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--                支付信息-->
+                <LinearLayout
+                    android:id="@+id/aoif_payInfo"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/white_middle_corner_shape"
+                    android:orientation="vertical"
+                    android:paddingLeft="15dp"
+                    android:paddingBottom="10dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/aoif_serviceOnline">
+
+                    <com.hl.lib_miniui.view.texts.OneRowTwoColumn
+                        android:id="@+id/aoif_orderNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        app:left_textcolor="#999999"
+                        app:left_textsize="14sp"
+                        app:left_texttip="订单编号"
+                        app:right_textcolor="#333333"
+                        app:right_textsize="14sp" />
+
+                    <com.hl.lib_miniui.view.texts.OneRowTwoColumn
+                        android:id="@+id/aoif_paytType"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        app:left_textcolor="#999999"
+                        app:left_textsize="14sp"
+                        app:left_texttip="支付方式"
+                        app:right_textcolor="#333333"
+                        app:right_textsize="14sp"
+                        app:right_texttip="微信" />
+
+                    <com.hl.lib_miniui.view.texts.OneRowTwoColumn
+                        android:id="@+id/aoif_payMoney"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        app:left_textcolor="#999999"
+                        app:left_textsize="14sp"
+                        app:left_texttip="支付金额"
+                        app:right_textcolor="#333333"
+                        app:right_textsize="14sp" />
+
+                    <com.hl.lib_miniui.view.texts.OneRowTwoColumn
+                        android:id="@+id/aoif_orderTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        app:left_textcolor="#999999"
+                        app:left_textsize="14sp"
+                        app:left_texttip="下单时间"
+                        app:right_textcolor="#333333"
+                        app:right_textsize="14sp" />
+
+                    <com.hl.lib_miniui.view.texts.OneRowTwoColumn
+                        android:id="@+id/aoif_sendTime"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        app:left_textcolor="#999999"
+                        app:left_textsize="14sp"
+                        app:left_texttip="发货时间"
+                        app:right_textcolor="#333333"
+                        app:right_textsize="14sp" />
+
+                    <com.hl.lib_miniui.view.texts.OneRowTwoColumn
+                        android:id="@+id/aoif_wuliuCompany"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        app:left_textcolor="#999999"
+                        app:left_textsize="14sp"
+                        app:left_texttip="物流公司"
+                        app:right_textcolor="#333333"
+                        app:right_textsize="14sp" />
+
+                    <com.hl.lib_miniui.view.texts.OneRowTwoColumn
+                        android:id="@+id/aoif_wuliuNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        app:left_textcolor="#999999"
+                        app:left_textsize="14sp"
+                        app:left_texttip="快递单号"
+                        app:right_textcolor="#333333"
+                        app:right_textsize="14sp"
+                        app:right_texttip="YT00199288199" />
+
+                    <com.hl.lib_miniui.view.texts.OneRowTwoColumn
+                        android:id="@+id/aoif_wuliuInfos"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        app:left_textcolor="#999999"
+                        app:left_textsize="14sp"
+                        app:left_texttip="快递信息"
+                        app:right_textcolor="#333333"
+                        app:right_textsize="14sp"
+                        app:right_texttip="已签收, 签收时间2020-10-10 12:19:10,签收人：王先生，快递员电话：121111111" />
+                </LinearLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/aoif_bottom"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingBottom="10dp"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <!--    确认收货/立即评价-->
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/aoif_orderSureOrEvaluate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="15dp"
+                android:background="@drawable/white_solid_bigcorner_stoke_green_shape"
+                android:includeFontPadding="false"
+                android:paddingLeft="14dp"
+                android:paddingTop="10dp"
+                android:paddingRight="14dp"
+                android:paddingBottom="10dp"
+                android:text="确认收货"
+                android:textColor="@color/middle_green"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--    催促发货/查看物流/再次挑战-->
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/aoif_cuiWuliuAgain"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="12dp"
+                android:background="@drawable/white_solid_bigcorner_stoke_gray_shape"
+                android:includeFontPadding="false"
+                android:onClick="@{ () -> orderInfoEvent.toLogisticsInfo()}"
+                android:paddingLeft="14dp"
+                android:paddingTop="10dp"
+                android:paddingRight="14dp"
+                android:paddingBottom="10dp"
+                android:text="查看物流"
+                android:textColor="@color/black_little"
+                android:textSize="12sp"
+                app:layout_constraintEnd_toStartOf="@+id/aoif_orderSureOrEvaluate"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

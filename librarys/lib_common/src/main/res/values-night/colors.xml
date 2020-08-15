@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ff3a70db</color>
+    <color name="colorPrimaryDark">#ff3a70db</color>
+    <color name="colorAccent">#03DAC5</color>
+    <color name="transparent">#00ffffff</color>
+
+    <!--    页面背景颜色、系统多选框颜色状态-->
+    <color name="app_main_normalcolor">#e4e4e4</color>
+    <color name="app_main_activatedcolor">#ff3a70db</color>
+    <color name="page_bg_color">#3700B3</color>
+    <color name="app_colorcontrol_normal">#e4e4e4</color>
+    <color name="app_colorcontrol_activated">#ff3a70db</color>
+    <color name="card_bg">#e4e4e4</color>
+    <color name="textinput_bg">#03DAC5</color>
+    <color name="tab_bg">#ff3a70db</color>
+
+    <!--    普通通用颜色配置-->
+    <color name="black_little">#ff333333</color>
+    <color name="little_gray">#e4e4e4</color>
+    <color name="mini_gray">#ffe0e0e0</color>
+    <color name="bg_gray">#f6f6f6</color>
+    <color name="middle_gray">#666666</color>
+    <color name="line_gray">#fff0f0f0</color>
+    <color name="deep_gray">#ff999999</color>
+    <color name="deeps_gray">#ffd4d4d4</color>
+    <color name="white">#ffffff</color>
+    <color name="middle_white">#ff3a88ff</color>
+    <color name="black">#000000</color>
+    <color name="deep_more_gray">#fff5f5f5</color>
+    <color name="deep_green">#ff135fa4</color>
+    <color name="little_green">#FF3498EF</color>
+    <color name="light_green">#ff3098ee</color>
+    <color name="little_blue">#fff2f8fc</color>
+    <color name="middle_green">#ff3098ef</color>
+    <color name="red">#FF0000</color>
+    <color name="little_red">#fffc4d47</color>
+    <color name="yellow_a">#fffed95e</color>
+    <color name="yellow_b">#FFEB54</color>
+</resources>

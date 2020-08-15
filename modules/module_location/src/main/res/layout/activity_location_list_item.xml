@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="14dp"
+    android:paddingBottom="17dp"
+    tools:context=".view.LocationListActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/alli_isDefaultPic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/add_img_choose"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/alli_editorPic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/add_icon_edit"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/alli_addrName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:text="王先生"
+        android:textColor="@color/black_little"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/alli_isDefaultPic"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/alli_addrPhone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:text="158*******3"
+        android:textColor="@color/black_little"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/alli_addrName"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.hl.lib_miniui.view.texts.Text_LightBg
+        android:id="@+id/alli_addrDefultState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/alli_addrPhone"
+        app:layout_constraintStart_toEndOf="@+id/alli_addrPhone"
+        app:layout_constraintTop_toTopOf="@+id/alli_addrPhone"
+        app:value_keycolor="@color/light_green"
+        app:value_keysize="10sp"
+        app:value_keyword="默认" />
+
+    <com.hl.lib_miniui.view.texts.Text_LightBg
+        android:id="@+id/alli_addrHomeCompany"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/alli_addrPhone"
+        app:layout_constraintStart_toEndOf="@+id/alli_addrDefultState"
+        app:layout_constraintTop_toTopOf="@+id/alli_addrPhone"
+        app:value_keycolor="@color/little_red"
+        app:value_keysize="10sp"
+        app:value_keyword="家" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/alli_addrSiteInfo"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:text="四川省凉山州西昌市月华乡"
+        android:textColor="@color/black_little"
+        android:textSize="13sp"
+        app:layout_constraintEnd_toStartOf="@+id/alli_editorPic"
+        app:layout_constraintStart_toStartOf="@+id/alli_addrName"
+        app:layout_constraintTop_toBottomOf="@+id/alli_addrPhone" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

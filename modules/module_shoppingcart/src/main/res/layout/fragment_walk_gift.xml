@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="shopcartEvent"
+            type="com.hl.module_shoppingcart.view.event.ShopCartEventHandler" />
+    </data>
+
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
+        android:id="@+id/fwg_smartRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <!--        收货地址信息-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/fwg_addressRoot"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginRight="15dp"
+                    android:background="@drawable/white_middle_corner_shape"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/fwg_addressLocationIcon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:onClick="@{() -> shopcartEvent.goLocationPage()}"
+                        android:src="@drawable/receive_img_address"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/fwg_addressChoose"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="15dp"
+                        android:onClick="@{() -> shopcartEvent.goLocationPage()}"
+                        android:src="@drawable/receive_icon_more"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/fwg_contactName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="9dp"
+                        android:layout_marginTop="20dp"
+                        android:text="王先生"
+                        android:textColor="@color/black_little"
+                        android:textSize="16sp"
+                        android:textStyle="bold"
+                        app:layout_constraintStart_toEndOf="@+id/fwg_addressLocationIcon"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/fwg_contactPhone"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="9dp"
+                        android:layout_marginRight="8dp"
+                        android:ellipsize="end"
+                        android:gravity="left"
+                        android:singleLine="true"
+                        android:text="15xxxxxxxx8"
+                        android:textColor="@color/deep_gray"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/fwg_contactName"
+                        app:layout_constraintEnd_toStartOf="@+id/fwg_addressChoose"
+                        app:layout_constraintStart_toEndOf="@+id/fwg_contactName" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/fwg_address"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="9dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="8dp"
+                        android:layout_marginBottom="20dp"
+                        android:ellipsize="end"
+                        android:gravity="left"
+                        android:singleLine="true"
+                        android:text="四川省凉山州西昌市月华乡"
+                        android:textColor="@color/black_little"
+                        android:textSize="14sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/fwg_addressChoose"
+                        app:layout_constraintStart_toEndOf="@+id/fwg_addressLocationIcon"
+                        app:layout_constraintTop_toBottomOf="@+id/fwg_contactName" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--                列表和底部说明-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/fwg_gitfListRoot"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="15dp"
+                    android:layout_marginBottom="20dp"
+                    android:background="@drawable/white_middle_corner_shape"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fwg_addressRoot">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/fwg_listTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="19dp"
+                        android:text="恭喜获得"
+                        android:textColor="@color/middle_gray"
+                        android:textSize="14sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!--                    奖品列表-->
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/fwg_gitfListRv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:layout_constraintTop_toBottomOf="@+id/fwg_listTitle" />
+
+                    <View
+                        android:id="@+id/fwg_gitfListBottom_line"
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="20dp"
+                        android:background="@color/line_gray"
+                        app:layout_constraintTop_toBottomOf="@+id/fwg_gitfListRv" />
+
+
+                    <!--                    商品文字说明-->
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/fwg_gitfListBottom_gitfDes"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="15dp"
+                        android:text="产品由广告方免费提供，运费根据地区、重量计算用户自理，再无其他费用。"
+                        android:textColor="@color/middle_gray"
+                        android:textSize="13sp"
+                        app:layout_constraintTop_toBottomOf="@+id/fwg_gitfListBottom_line" />
+
+                    <!--                    费用相关说明-->
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/fwg_gitfListBottom_gitfFreight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="15dp"
+                        android:text="8元"
+                        android:textColor="@color/light_green"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/fwg_gitfListBottom_gitfDes" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/fwg_gitfListBottom_gitfFreightTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="10dp"
+                        android:text="运费自理："
+                        android:textColor="@color/black_little"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toStartOf="@+id/fwg_gitfListBottom_gitfFreight"
+                        app:layout_constraintTop_toBottomOf="@+id/fwg_gitfListBottom_gitfDes" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/fwg_gitfListBottom_gitfWorth"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="20dp"
+                        android:text="￥1000"
+                        android:textColor="@color/deep_gray"
+                        android:textSize="16sp"
+                        app:layout_constraintEnd_toStartOf="@+id/fwg_gitfListBottom_gitfFreightTitle"
+                        app:layout_constraintTop_toBottomOf="@+id/fwg_gitfListBottom_gitfDes" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/fwg_gitfListBottom_gitfWorthTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="20dp"
+                        android:layout_marginRight="10dp"
+                        android:text="电商价值："
+                        android:textColor="@color/black_little"
+                        android:textSize="14sp"
+                        app:layout_constraintEnd_toStartOf="@+id/fwg_gitfListBottom_gitfWorth"
+                        app:layout_constraintTop_toBottomOf="@+id/fwg_gitfListBottom_gitfDes" />
+
+                    <!--                    特别参与说明-->
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/fwg_gitfListBottom_gitfExtraDes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginRight="15dp"
+                        android:layout_marginBottom="25dp"
+                        android:background="@drawable/tips_deep_blue_shape"
+                        android:padding="5dp"
+                        android:text="运费挺贵，不要浪费，可再得2件一起领取"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/fwg_gitfListBottom_gitfWorthTitle" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+</layout>

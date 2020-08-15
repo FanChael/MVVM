@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="loginHandler"
+            type="com.hl.modules_login.view.event.LoginNavEventHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.fragment.LoginFragment">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/fl_topCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            app:cardBackgroundColor="@color/card_bg"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/fl_commonLogo"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/chicken_icon"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/fl_userNameTL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:theme="@style/EditTextStyle"
+                    app:boxBackgroundColor="@color/textinput_bg"
+                    app:counterMaxLength="25"
+                    app:layout_constraintTop_toBottomOf="@+id/fl_commonLogo"
+                    app:startIconDrawable="@drawable/user_tip_icon">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/fl_userNameEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="用户名"
+                        android:textSize="18sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/fl_userPassTL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/EditTextStyle"
+                    app:boxBackgroundColor="@color/textinput_bg"
+                    app:counterMaxLength="18"
+                    app:errorEnabled="true"
+                    app:layout_constraintTop_toBottomOf="@+id/fl_userNameTL"
+                    app:passwordToggleEnabled="true"
+                    app:startIconDrawable="@drawable/pass_tip_icon">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/fl_userPassEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="密码"
+                        android:inputType="textPassword"
+                        android:textSize="18sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/fl_loginTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:clickable="true"
+                    android:onClick="@{(view)->loginHandler.clickLogin(view)}"
+                    android:text="点击登录！"
+                    android:textSize="25sp"
+                    android:theme="@style/AppTheme.Button"
+                    app:layout_constraintTop_toBottomOf="@+id/fl_userPassTL" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/fl_goRegisterTv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="5dp"
+                    android:onClick="@{(view)->loginHandler.toRegister(view)}"
+                    android:text="@string/register_tip"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/fl_loginTv" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

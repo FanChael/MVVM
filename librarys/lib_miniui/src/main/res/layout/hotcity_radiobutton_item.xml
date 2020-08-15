@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RadioButton xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="#fff0f0f0"
+    android:button="@null"
+    android:gravity="center"
+    android:text="0—5个"
+    android:textColor="#ff333333"
+    android:textSize="13sp" /><!--单选文本样式-->

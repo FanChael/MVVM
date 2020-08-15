@@ -1,0 +1,102 @@
+ext {
+    /**
+     * module开关统一申明在此处
+     * true: 表示作为一个模块
+     * false: 表示作为独立程序，可单独运行
+     */
+    isLibrary_MiniUi = true
+    isLibrary_RefreshLayout = true
+    isLibrary_Media = true
+    isLibrary_Banner = true
+    isLibrary_Webview = true
+    isLibrary_Pop = true
+    isModule_Location = true
+    isModule_Home = true
+    isModule_Login = true
+    isModule_Main = true
+    isModule_Personal = true
+    isModule_ProductDetail = true
+    isModule_ShoppingCar = true
+
+    /**
+     * 版本信息统一管理
+     */
+    versions = [
+            // 主模块特有的，某次升级不一定涉及到某个子模块
+            applicationId          : "com.hl.mvvm",  	   // 应用ID
+            versionCode            : 1,                    // 版本号
+            versionName            : "1.0.0",              // 版本名称
+
+            // 所有模块需要统一编译环境，保持同步更新
+            compileSdkVersion      : 29,
+            minSdkVersion          : 21,
+            targetSdkVersion       : 29,
+            buildToolsVersion      : "29.0.3",
+
+            appcompatVersion       : "1.0.2",
+            materialVersion        : "1.2.0-alpha01",
+            constraintlayoutVersion: "1.1.3",
+            junitVersion           : "4.12",
+            extVersion             : "1.1.1",
+            espressoVersion        : "3.2.0",
+            fragmentversion        : "1.2.1",
+            viewpaper2Version      : "1.0.0",
+            lifecycleVersion       : "2.2.0",
+            navigationVersion      : "2.3.0-alpha01",
+            exoplayerVersion       : "2.11.4",
+            easypermissionVersion  : "2.0.1",
+
+            // 三方依赖版本
+            arouterapiVersion      : "1.5.0",
+            aroutercompilerVersion : "1.2.2",
+            eventbusVersion        : "3.1.1",
+            // rx Net模块lib_network依赖
+            retrofitVersion        : "2.6.0",
+            rxjavaVersion          : "2.2.9",
+            rxandroidVersion       : "2.1.1",
+            gsonVersion            : "2.8.6",
+            cookjarVersion         : "1.0.1",
+            glideVersion           : "4.11.0",
+            // 刷新依赖
+            smartVersion           : "2.0.1"
+    ]
+
+    dependencies = [
+            "appcompat"       : "androidx.appcompat:appcompat:${versions["appcompatVersion"]}",
+            "material"        : "com.google.android.material:material:${versions["materialVersion"]}",
+            "constraintlayout": "androidx.constraintlayout:constraintlayout:${versions["constraintlayoutVersion"]}",
+            "junit"           : "junit:junit:${versions["junitVersion"]}",
+            "ext"             : "androidx.test.ext:junit:${versions["extVersion"]}",
+            "espresso"        : "androidx.test.espresso:espresso-core:${versions["espressoVersion"]}",
+            'fragment'        : "androidx.fragment:fragment:${versions["fragmentversion"]}",
+            'viewpaper2'      : "androidx.viewpager2:viewpager2:${versions["viewpaper2Version"]}",
+            'navigation_f'    : "androidx.navigation:navigation-fragment:${versions["navigationVersion"]}",
+            'navigation_ui'   : "androidx.navigation:navigation-ui:${versions["navigationVersion"]}",
+            'viewmodel'       : "androidx.lifecycle:lifecycle-viewmodel:${versions["lifecycleVersion"]}",
+            'life_runtime'    : "androidx.lifecycle:lifecycle-runtime:${versions["lifecycleVersion"]}",
+            'life_compiler'   : "androidx.lifecycle:lifecycle-common-java8:${versions["lifecycleVersion"]}",
+            'life_annotation' : "androidx.lifecycle:lifecycle-compiler:${versions["lifecycleVersion"]}",
+            'exoplayer_core'  : "com.google.android.exoplayer:exoplayer-core:${versions["exoplayerVersion"]}",
+            'exoplayer_dash'  : "com.google.android.exoplayer:exoplayer-dash:${versions["exoplayerVersion"]}",
+            'exoplayer_ui'    : "com.google.android.exoplayer:exoplayer-ui:${versions["exoplayerVersion"]}",
+            'easypermissions' : "pub.devrel:easypermissions:${versions["easypermissionVersion"]}",
+
+            //三方依赖
+            'arouter_api'     : "com.alibaba:arouter-api:${versions["arouterapiVersion"]}",
+            'arouter_compiler': "com.alibaba:arouter-compiler:${versions["aroutercompilerVersion"]}",
+            'eventbus'        : "org.greenrobot:eventbus:${versions["eventbusVersion"]}",
+            'retrofit'        : "com.squareup.retrofit2:retrofit:${versions["retrofitVersion"]}",
+            'converter-gson'  : "com.squareup.retrofit2:converter-gson:${versions["retrofitVersion"]}",
+            'adapter-rxjava2' : "com.squareup.retrofit2:adapter-rxjava2:${versions["retrofitVersion"]}",
+            'rxjava'          : "io.reactivex.rxjava2:rxjava:${versions["rxjavaVersion"]}",
+            'rxandroid'       : "io.reactivex.rxjava2:rxandroid:${versions["rxandroidVersion"]}",
+            'gson'            : "com.google.code.gson:gson:${versions["gsonVersion"]}",
+            'cookjar'         : "com.github.franmontiel:PersistentCookieJar:v${versions["cookjarVersion"]}",
+            'glide'           : "com.github.bumptech.glide:glide:${versions["glideVersion"]}",
+            'glide_annotation': "com.github.bumptech.glide:compiler:${versions["glideVersion"]}",
+            'glide_okhttp3'   : "com.github.bumptech.glide:okhttp3-integration:${versions["glideVersion"]}",
+            'smartRefresh'    : "com.scwang.smart:refresh-layout-kernel:${versions["smartVersion"]}",
+            'smartRefreshH'   : "com.scwang.smart:refresh-header-material:${versions["smartVersion"]}",
+            'smartRefreshF'   : "com.scwang.smart:refresh-footer-classics:${versions["smartVersion"]}"
+    ]
+}

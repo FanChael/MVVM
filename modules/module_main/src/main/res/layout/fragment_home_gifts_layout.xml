@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="4dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginRight="4dp"
+    android:background="@drawable/home_list_bg"
+    android:elevation="15dp"
+    android:padding="10dp">
+
+    <!--    产品状态标识-->
+    <com.hl.lib_miniui.view.texts.Text_LeafBg
+        android:id="@+id/fhgl_tagSateLf"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:leaf_bgcolor="@color/app_main_activatedcolor"
+        app:leaf_textcolor="@color/white"
+        app:leaf_textsize="11sp"
+        app:leaf_textword="免费得" />
+
+    <!--                    奖品进度-->
+    <com.hl.lib_miniui.view.progress.GiftProgress
+        android:id="@+id/fhgl_GiftPic"
+        android:layout_width="98dp"
+        android:layout_height="98dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:s_gift_circle_color="#FFE5E5E5"
+        app:s_gift_circle_s_color="#FF2C97EE"
+        app:s_gift_outcircle_color="#FF7ABBED" />
+
+    <!--    产品名称-->
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/fhgl_giftName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Remax 运动蓝牙耳机"
+        android:textColor="#ff333333"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fhgl_GiftPic" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/fhgl_partake"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="5万人参与"
+        android:textColor="@color/black_little"
+        android:textSize="10sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--                    开始挑战-->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/fhgl_SpeedUp"
+        style="@style/MaterialComponents.Mini.Button"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:gravity="center"
+        android:text="开始挑战"
+        android:textColor="@color/white"
+        android:textSize="14sp"
+        app:backgroundTint="#FF3098EE"
+        app:layout_constraintBottom_toBottomOf="@+id/fhgl_GiftPic"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fhgl_GiftPic" />
+
+    <!--    运动小人-->
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/fhgl_stepPeple"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/home_walk_02"
+        app:layout_constraintBottom_toBottomOf="@+id/fhgl_GiftPic"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fhgl_GiftPic" />
+
+    <!--                    总步数-数字高亮-->
+    <com.hl.lib_miniui.view.texts.Text_Value
+        android:id="@+id/fhgl_stepCount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:gravity="center"
+        android:text="5000步"
+        android:textColor="@color/deep_gray"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toBottomOf="@+id/fhgl_GiftPic"
+        app:layout_constraintStart_toEndOf="@+id/fhgl_stepPeple"
+        app:layout_constraintTop_toTopOf="@+id/fhgl_GiftPic"
+        app:value_keycolor="@color/little_green"
+        app:value_keysize="25sp"
+        app:value_keyword="5000" />
+</androidx.constraintlayout.widget.ConstraintLayout>

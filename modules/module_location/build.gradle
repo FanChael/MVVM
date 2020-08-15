@@ -1,0 +1,94 @@
+if (Boolean.valueOf(rootProject.ext.isModule_Location)) {
+    apply plugin: 'com.android.library'
+} else {
+    apply plugin: 'com.android.application'
+}
+
+android {
+    def versionConfig = rootProject.extensions.getByName("ext").versions
+    compileSdkVersion versionConfig.compileSdkVersion
+    buildToolsVersion versionConfig.buildToolsVersion
+
+    defaultConfig {
+        // 作为程序独立运行时才设置AppId
+        if (!Boolean.valueOf(rootProject.ext.isModule_Location)) {
+            applicationId "com.hl.module_location"
+        }
+        minSdkVersion versionConfig.minSdkVersion
+        targetSdkVersion versionConfig.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+    }
+
+    signingConfigs {
+        release {
+            storeFile file('../../app/test.jks')
+            storePassword "testtest"
+            keyAlias "testtest"
+            keyPassword "testtest"
+        }
+    }
+
+    buildTypes {
+        release {
+            consumerProguardFiles 'proguard-rules.pro'
+            manifestPlaceholders = [amap_debug_release: 'd0d24f6eedab66e6f4a86b4ffb9fa4cb']
+            if (!Boolean.valueOf(rootProject.ext.isModule_Location)) {
+                // 签名
+                signingConfig signingConfigs.release
+            }
+        }
+        //建议关了debug混淆，影响调试
+        debug {
+            consumerProguardFiles 'proguard-rules.pro'
+            manifestPlaceholders = [amap_debug_release: 'c2d4a8572d66f32cbe11d87e8d9292e0']
+            if (!Boolean.valueOf(rootProject.ext.isModule_Location)) {
+                // 签名
+                signingConfig signingConfigs.release
+            }
+        }
+    }
+
+    sourceSets {
+        main {
+            if (!Boolean.valueOf(rootProject.ext.isModule_Location)) {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/debug/AndroidManifest.xml'
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation project(path: ':librarys:lib_common')
+    implementation project(path: ':librarys:lib_miniui')
+    // Arouter路由注解
+    annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
+    // 高德地图
+    implementation 'com.amap.api:3dmap:5.0.0'
+    implementation 'com.amap.api:location:3.3.0'
+    implementation 'com.amap.api:search:5.0.0'
+    // tinypinyin - 城市索引需要处理下如重庆的zhong发音的问题
+    implementation 'com.github.promeg:tinypinyin:2.0.3'
+    // stickyDecoration(Recycleview置顶悬浮)
+    implementation 'com.gavin.com.library:stickyDecoration:1.5.2'
+}

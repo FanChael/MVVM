@@ -1,0 +1,71 @@
+apply plugin: 'com.android.library'
+
+android {
+    def versionConfig = rootProject.extensions.getByName("ext").versions
+    compileSdkVersion versionConfig.compileSdkVersion
+    buildToolsVersion versionConfig.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion versionConfig.minSdkVersion
+        targetSdkVersion versionConfig.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+        release {
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+    }
+
+    dataBinding {
+        enabled = true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    api rootProject.ext.dependencies["appcompat"]
+    api rootProject.ext.dependencies["material"]
+    api rootProject.ext.dependencies["constraintlayout"]
+    api rootProject.ext.dependencies["junit"]
+    api rootProject.ext.dependencies["ext"]
+    api rootProject.ext.dependencies["espresso"]
+    // 【官方】1.2.1有FragmentContainerView可用
+    api rootProject.ext.dependencies["fragment"]
+    api rootProject.ext.dependencies["navigation_f"]
+    api rootProject.ext.dependencies["navigation_ui"]
+    api rootProject.ext.dependencies["viewpaper2"]
+    api rootProject.ext.dependencies["viewmodel"]
+    // Viewmodel has inclued; Lifecycles only (without ViewModel or LiveData)
+    // api rootProject.ext.dependencies["life_runtime"]
+    // Annotation processor
+    // annotationProcessor rootProject.ext.dependencies["life_annotation"]
+    // alternately - if using Java8, use the following instead of lifecycle-compiler
+    api rootProject.ext.dependencies["life_compiler"]
+    api rootProject.ext.dependencies["easypermissions"]
+
+    // 【非官方】
+    // arouter路由依赖
+    api rootProject.ext.dependencies["arouter_api"]
+    // eventbus依赖
+    api rootProject.ext.dependencies["eventbus"]
+    // gide依赖
+    api rootProject.ext.dependencies["glide"]
+    api rootProject.ext.dependencies["glide_okhttp3"]
+    // smart_refresh刷新
+    api rootProject.ext.dependencies["smartRefresh"]
+    api rootProject.ext.dependencies["smartRefreshH"]
+    api rootProject.ext.dependencies["smartRefreshF"]
+}

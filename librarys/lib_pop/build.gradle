@@ -1,0 +1,66 @@
+if (Boolean.valueOf(rootProject.ext.isLibrary_Pop)) {
+    apply plugin: 'com.android.library'
+} else {
+    apply plugin: 'com.android.application'
+}
+
+android {
+    def versionConfig = rootProject.extensions.getByName("ext").versions
+    compileSdkVersion versionConfig.compileSdkVersion
+    buildToolsVersion versionConfig.buildToolsVersion
+
+    defaultConfig {
+        // 作为程序独立运行时才设置AppId
+        if (!Boolean.valueOf(rootProject.ext.isLibrary_Webview)) {
+            applicationId "com.hl.lib_pop"
+        }
+        minSdkVersion versionConfig.minSdkVersion
+        targetSdkVersion versionConfig.targetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [AROUTER_MODULE_NAME: project.getName()]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            if (!Boolean.valueOf(rootProject.ext.isLibrary_Pop)) {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/debug/AndroidManifest.xml'
+            }
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    dataBinding {
+        enabled = true
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    // 用api，app模块引入该模块后就可以直接使用base模块的方法；
+    // 但是还是不放开，主模块自己依赖，因为主模块需要用到base模块资源
+    implementation project(path: ':librarys:lib_common')
+    implementation project(path: ':librarys:lib_miniui')
+    // Arouter路由注解
+    annotationProcessor rootProject.ext.dependencies["arouter_compiler"]
+}

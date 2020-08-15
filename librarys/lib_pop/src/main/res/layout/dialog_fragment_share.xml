@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/white_top_corner_shape"
+    tools:context=".example.PopTestActivity">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/dfsh_shareTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="分享得好礼"
+        android:textColor="@color/black_little"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/dfsh_payType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="（分享给好友随机得如下一款）"
+        android:textColor="@color/deep_gray"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dfsh_shareTitle" />
+
+    <!--            分享得奖品-->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/dfsh_shareGift"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/dfsh_payType" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/dfsh_shareToTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="分享到"
+        android:textColor="@color/black_little"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dfsh_shareGift" />
+
+    <LinearLayout
+        android:id="@+id/dfsh_shareType"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dfsh_shareToTitle">
+
+        <com.hl.lib_miniui.view.texts.Text_Icon
+            android:id="@+id/dfsh_shareWebchart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:text="微信好友"
+            android:textColor="@color/black_little"
+            android:textSize="10sp"
+            app:icon_drawable="@drawable/pay_img_wechat" />
+
+        <com.hl.lib_miniui.view.texts.Text_Icon
+            android:id="@+id/dfsh_shareAlipay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="40dp"
+            android:orientation="vertical"
+            android:text="支付宝"
+            android:textColor="@color/black_little"
+            android:textSize="10sp"
+            app:icon_drawable="@drawable/pay_img_zhb" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/dfsh_shareLine"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="34dp"
+        android:background="@color/line_gray"
+        app:layout_constraintTop_toBottomOf="@+id/dfsh_shareType" />
+
+    <!--        取消-->
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/dfsh_cancel"
+        style="@style/MaterialComponents.NoCorner.Button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="取消"
+        android:textColor="@color/black_little"
+        android:textSize="17sp"
+        app:backgroundTint="#FFFFFF"
+        app:layout_constraintTop_toBottomOf="@+id/dfsh_shareLine" />
+</androidx.constraintlayout.widget.ConstraintLayout>

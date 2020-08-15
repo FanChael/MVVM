@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hl.modules_personal">
+
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".view.PersonalFragmentTestActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".view.activity.OnlineServiceActivity"
+            android:theme="@style/NormalTheme" />
+        <activity
+            android:name=".view.activity.SettingActivity"
+            android:theme="@style/NormalTheme" />
+        <activity
+            android:name=".view.activity.UserInfoActivity"
+            android:theme="@style/NormalTheme" />
+        <activity
+            android:name=".view.activity.LogisticsInfoActivity"
+            android:theme="@style/NormalTheme" />
+        <activity
+            android:name=".view.activity.OderInfoActivity"
+            android:theme="@style/NormalTheme" />
+        <activity
+            android:name=".view.activity.OdersActivity"
+            android:theme="@style/NormalTheme" />
+        <activity
+            android:name=".view.activity.DongdouChargeActivity"
+            android:theme="@style/NormalTheme" />
+        <activity
+            android:name=".view.activity.DongdouListActivity"
+            android:theme="@style/NormalTheme" />
+        <activity
+            android:name=".view.activity.DongdouInfoActivity"
+            android:theme="@style/NormalTheme" />
+    </application>
+
+</manifest>

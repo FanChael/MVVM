@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">modules_home</string>
+    <string name="bottom_home_name">首页</string>
+    <string name="bottom_personal_name">个人中心</string>
+</resources>

@@ -1,0 +1,81 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <!--闪屏页-->
+    <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowFullscreen">true</item>
+        <!--不让windowBackground延申到navigation bar区域-->
+        <item name="android:windowDrawsSystemBarBackgrounds">false</item>
+        <!--适配Android P刘海屏-->
+        <item name="android:windowLayoutInDisplayCutoutMode">shortEdges</item>
+    </style>
+
+    <!-- 普通无标题栏 -->
+    <style name="NormalTheme" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <!-- Customize your theme here. -->
+        <item name="android:windowBackground">@color/white</item>
+        <item name="colorControlNormal">@color/app_colorcontrol_normal</item>
+        <item name="colorControlActivated">@color/app_colorcontrol_activated</item>
+    </style>
+
+    <!--    BottomNavigationView属性-->
+    <style name="BottomNavigationViewTheme" parent="Widget.MaterialComponents.BottomNavigationView">
+        <!--波纹颜色无-->
+        <item name="itemRippleColor">@null</item>
+        <item name="itemTextAppearanceActive">@style/BottomNavigationViewTheme.TextAppearance_Selected
+        </item>
+        <item name="itemTextAppearanceInactive">@style/BottomNavigationViewTheme.TextAppearance
+        </item>
+    </style>
+    <!--    BottomNavigationView 字体属性-->
+    <style name="BottomNavigationViewTheme.TextAppearance" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">12sp</item>
+    </style>
+    <style name="BottomNavigationViewTheme.TextAppearance_Selected" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <!--    TabLayout样式-->
+    <!--    <item name="tabIconTint">@color/tablayout_tabs_icon_color_selector</item>-->
+    <style name="TabLayoutTheme" parent="Widget.MaterialComponents.TabLayout">
+        <item name="tabMode">fixed</item>
+        <item name="background">@color/colorAccent</item>
+        <item name="tabTextAppearance">@style/TabLayoutTheme.text</item>
+        <item name="tabTextColor">@color/middle_gray</item>
+        <item name="tabRippleColor">@android:color/transparent</item>
+        <item name="tabIndicatorFullWidth">false</item>
+        <item name="tabIndicatorColor">@color/app_main_activatedcolor</item>
+        <item name="tabSelectedTextColor">@color/colorPrimary</item>
+        <item name="tabIndicatorHeight">4dp</item>
+    </style>
+    <!--    TabLayout主题颜色-->
+    <style name="TabLayoutTheme.text">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <!--    TextInputEditText 主题: boxBackgroundColor是配置的到属性里面的 -->
+    <style name="EditTextStyle" parent="Widget.Design.TextInputLayout">
+        <item name="boxBackgroundMode">none</item>
+        <item name="android:textColorHint">@color/middle_gray</item>
+        <item name="errorEnabled">true</item>
+        <item name="counterEnabled">true</item>
+    </style>
+
+    <!--    MaterialButton主题-->
+    <style name="AppTheme.Button" parent="Widget.AppCompat.Button.Colored">
+        <item name="colorButtonNormal">@color/app_main_activatedcolor</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+</resources>

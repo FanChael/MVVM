@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="payEvent"
+            type="com.hl.module_pay.event.PayEventHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.ShoppingCartActivity">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:adjustViewBounds="true"
+            android:src="@drawable/receive_head_bg"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--        顶部返回、标题-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/asp_titleBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/asp_titleBack"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:src="@drawable/recive_icon_back"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!--            运动得礼、活动得礼-->
+            <!--            android:layout_height="18sp" 设置为字体大小的高度 + nbg_padding= 2dp-->
+            <com.hl.lib_miniui.view.tablayout.HlTablayout
+                android:id="@+id/asp_tablayout"
+                style="@style/TabLayoutThemeBg"
+                android:layout_width="wrap_content"
+                android:layout_height="22sp"
+                android:background="@color/transparent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:s_tab_text_selected_size="18sp"
+                app:s_tab_text_size="16sp"
+                app:tabGravity="center"
+                app:tabMode="fixed"
+                app:tabPaddingBottom="-1dp"
+                app:tabPaddingTop="-1dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--        分别不同的礼物页面-->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/asp_ContentV"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@+id/asp_buyGift"
+            app:layout_constraintTop_toBottomOf="@+id/asp_titleBar" />
+
+        <!--        立即领取-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/asp_buyGift"
+            style="@style/MaterialComponents.NoCorner.Button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="立即领取"
+            android:onClick="@{() -> payEvent.payGetGift()}"
+            android:textColor="@color/white"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:backgroundTint="#FF3098EE"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

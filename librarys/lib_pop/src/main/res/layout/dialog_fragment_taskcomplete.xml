@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    tools:context=".example.PopTestActivity">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/dft_topLight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/prize_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!--    发光图片居中的占位标识-->
+    <View
+        android:id="@+id/dft_topLightCenter"
+        android:layout_width="1dp"
+        android:layout_height="1dp"
+        android:layout_marginTop="100dp"
+        app:layout_constraintEnd_toEndOf="@+id/dft_topLight"
+        app:layout_constraintStart_toStartOf="@+id/dft_topLight"
+        app:layout_constraintTop_toTopOf="@+id/dft_topLight" />
+
+    <!--    蓝色背景，奖励图片中心+一定margin-->
+    <View
+        android:id="@+id/dft_contentBg"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@drawable/tips_little_blue_shape"
+        app:layout_constraintBottom_toBottomOf="@+id/dft_bottomSeat"
+        app:layout_constraintTop_toTopOf="@+id/dft_topSeat" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/dft_prizePic"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/prize_pic"
+        app:layout_constraintBottom_toBottomOf="@+id/dft_topLightCenter"
+        app:layout_constraintEnd_toEndOf="@+id/dft_topLightCenter"
+        app:layout_constraintStart_toStartOf="@+id/dft_topLightCenter"
+        app:layout_constraintTop_toTopOf="@+id/dft_topLightCenter" />
+
+    <!--    顶部占位空间-->
+    <View
+        android:id="@+id/dft_topSeat"
+        android:layout_width="match_parent"
+        android:layout_height="26dp"
+        app:layout_constraintBottom_toTopOf="@+id/dft_centerContent" />
+
+    <!--    白色区域内容-->
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/dft_centerContent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="15dp"
+        android:background="@drawable/white_solid_bigcorner_stoke_green_shape"
+        app:layout_constraintTop_toBottomOf="@+id/dft_prizePic">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dft_topTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="恭喜您完成任务，免费获得"
+            android:textColor="@color/black_little"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.hl.lib_miniui.view.imageview.RoundImageView
+            android:id="@+id/dft_taskPic"
+            android:layout_width="105dp"
+            android:layout_height="105dp"
+            android:layout_marginTop="20dp"
+            android:src="@drawable/pic_defult"
+            app:civ_border_width="6dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dft_topTip" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dft_taskName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="沐浴露500ml产品测试"
+            android:textColor="@color/middle_gray"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dft_taskPic" />
+
+        <!--                    立即领取-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/dft_taskGet"
+            style="@style/MaterialComponents.Button"
+            android:layout_width="170dp"
+            android:layout_height="44dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="25dp"
+            android:gravity="center"
+            android:text="立即领取"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            app:backgroundTint="#FF3098EE"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dft_taskName" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <!--    底部占位空间-->
+    <View
+        android:id="@+id/dft_bottomSeat"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        app:layout_constraintTop_toBottomOf="@+id/dft_centerContent" />
+
+    <!--    关闭按钮-->
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/dft_closeTaskPop"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="13dp"
+        android:src="@drawable/prize_close"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/dft_contentBg" />
+</androidx.constraintlayout.widget.ConstraintLayout>

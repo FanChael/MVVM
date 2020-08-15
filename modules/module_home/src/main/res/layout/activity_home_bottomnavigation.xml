@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".HomeBottomNavigationActivity">
+
+        <!--        androidx.viewpager2.widget.ViewPager2中 自定义ViewGroup兼容性有点问题-->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/ahb_contentVp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/ahb_bottomLine"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--        底部导航栏上面的横线-->
+        <View
+            android:id="@+id/ahb_bottomLine"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/little_gray"
+            app:layout_constraintBottom_toTopOf="@+id/ahb_bottomBNv" />
+
+        <!--        底部导航栏BottomNavigationView-->
+        <!--        BottomNavigationView-->
+        <!--        android:itemBackground="@null"无效  用app:itemRippleColor="@null"-->
+        <!--        app:itemIconSize="14dp"-->
+        <!--        android:background="@drawable/tablayout_bg_shape"-->
+        <com.google.android.material.bottomnavigation.BottomNavigationView
+            android:id="@+id/ahb_bottomBNv"
+            style="@style/BottomNavigationViewTheme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:itemHorizontalTranslationEnabled="false"
+            android:background="@drawable/tablayout_bg_shape"
+            app:itemTextColor="@drawable/bottom_text_selector"
+            app:labelVisibilityMode="labeled"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+        </com.google.android.material.bottomnavigation.BottomNavigationView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

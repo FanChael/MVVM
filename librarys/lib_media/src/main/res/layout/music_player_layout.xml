@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal">
+
+    <!--        播放暂停-->
+    <com.hl.lib_miniui.view.toggle.SToggleButton
+        android:id="@+id/mpl_musicPlayPause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/music_play_pause_toggle_selector"
+        android:checked="true"
+        android:textOff="@null"
+        android:textOn="@null" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/mpl_musicName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="蔡健雅-红色高跟鞋"
+        android:textColor="@color/deep_green"
+        android:textSize="13sp" />
+
+    <!--        静音-->
+    <com.hl.lib_miniui.view.toggle.SToggleButton
+        android:id="@+id/mpl_musicVolumToggle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="6dp"
+        android:background="@drawable/music_volum_onoff_toggle_selector"
+        android:checked="true"
+        android:textOff="@null"
+        android:textOn="@null" />
+
+    <!--        切换-->
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/mpl_musicChangePause"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:src="@drawable/home_icon_loop"
+        android:textOff="@null"
+        android:textOn="@null" />
+</LinearLayout>

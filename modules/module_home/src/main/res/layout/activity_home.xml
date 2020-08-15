@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".HomeActivity">
+
+        <!--        androidx.viewpager2.widget.ViewPager2中 自定义ViewGroup兼容性有点问题-->
+        <androidx.viewpager.widget.ViewPager
+            android:id="@+id/ah_contentVp"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toTopOf="@+id/ah_bottomTbL"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--            app:tabIndicatorColor ：指示线的颜色-->
+        <!--            app:tabIndicatorHeight ： 指示线的高度-->
+        <!--            app:tabIndicatorFullWidth="false" 指示线是否铺满宽度-->
+        <!--            app:tabSelectedTextColor ： tab选中时的字体颜色-->
+        <!--            app:tabTextColor="@color/colorPrimary" ：未选中字体颜色-->
+        <!--            app:tabBackground="color" ： 整个tablayout颜色-->
+        <!--            app:tabRippleColor="color" ： 涟漪动画-->
+        <!--            app:tabMode="scrollable" ： 默认是fixed，固定的；scrollable：可滚动的-->
+
+        <!--        改到style中配置-->
+        <!--        app:tabMode="fixed"-->
+        <!--        app:tabTextAppearance="@style/TabLayoutTheme.text"-->
+        <!--        app:tabTextColor="@color/app_main_normalcolor"-->
+        <!--        app:tabRippleColor="@android:color/transparent"-->
+        <!--        app:tabIndicatorFullWidth="false"-->
+        <!--        app:tabIndicatorColor="@color/app_main_activatedcolor"-->
+
+        <!--        app:tabBackground="@color/transparent"-->
+        <!--        app:tabIndicatorHeight="2dp"-->
+        <!--        app:tabSelectedTextColor="@color/app_main_activatedcolor"-->
+        <com.google.android.material.tabs.TabLayout
+            android:id="@+id/ah_bottomTbL"
+            style="@style/TabLayoutTheme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/tablayout_bg_shape"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+            <!--            无需设置，TabLayoutMediator关联viewpager2+fragment+tablayout-->
+            <!--            android:layout="@layout/xxxx"-->
+            <!--            android:text="@string/bottom_home_name"-->
+            <!--            <com.google.android.material.tabs.TabItem-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:icon="@drawable/bottom_home_selector" />-->
+
+
+            <!--            android:text="@string/bottom_personal_name"-->
+            <!--            <com.google.android.material.tabs.TabItem-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:icon="@drawable/bottom_personal_selector" />-->
+        </com.google.android.material.tabs.TabLayout>
+
+        <!--        帮助toggle实现旋转后的靠边效果-->
+        <android.widget.Space
+            android:id="@+id/ah_stogBtnSpace"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginEnd="80dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <!--        搞个自定义ToggleButton耍哈而已-->
+        <com.hl.lib_miniui.view.toggle.SToggleButton
+            android:id="@+id/ah_stogBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:rotation="90"
+            app:layout_constraintBottom_toBottomOf="@+id/ah_stogBtnSpace"
+            app:layout_constraintStart_toStartOf="@+id/ah_stogBtnSpace"
+            app:layout_constraintTop_toTopOf="@+id/ah_stogBtnSpace" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

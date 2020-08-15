@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/step_info_blue_shape"
+    android:padding="10dp"
+    tools:context=".view.MainActivity">
+
+    <com.hl.lib_miniui.view.texts.Text_Value
+        android:id="@+id/fhsi_stepCounterKmV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="1.74公里"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:value_keycolor="@color/yellow_a"
+        app:value_keysize="25sp"
+        app:value_keyword="1.74" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/fhsi_stepCounterKmTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="步行里程"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/fhsi_stepCounterKmV"
+        app:layout_constraintStart_toStartOf="@+id/fhsi_stepCounterKmV"
+        app:layout_constraintTop_toBottomOf="@+id/fhsi_stepCounterKmV" />
+
+    <com.hl.lib_miniui.view.texts.Text_Value
+        android:id="@+id/fhsi_stepCounterTimeV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="27dp"
+        android:gravity="center"
+        android:text="1.2小时"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/fhsi_stepCounterKmV"
+        app:layout_constraintTop_toTopOf="parent"
+        app:value_keycolor="@color/yellow_a"
+        app:value_keysize="25sp"
+        app:value_keyword="1.2" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/fhsi_stepCounterTimeTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="步行时间"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/fhsi_stepCounterTimeV"
+        app:layout_constraintStart_toStartOf="@+id/fhsi_stepCounterTimeV"
+        app:layout_constraintTop_toBottomOf="@+id/fhsi_stepCounterTimeV" />
+
+    <com.hl.lib_miniui.view.texts.Text_Value
+        android:id="@+id/fhsi_stepCounterColorieV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="27dp"
+        android:gravity="center"
+        android:text="200千卡"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintStart_toEndOf="@+id/fhsi_stepCounterTimeV"
+        app:layout_constraintTop_toTopOf="parent"
+        app:value_keycolor="@color/yellow_a"
+        app:value_keysize="25sp"
+        app:value_keyword="200" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/fhsi_stepCounterColorieTip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="卡路里"
+        android:textColor="@color/white"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="@+id/fhsi_stepCounterColorieV"
+        app:layout_constraintStart_toStartOf="@+id/fhsi_stepCounterColorieV"
+        app:layout_constraintTop_toBottomOf="@+id/fhsi_stepCounterColorieV" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

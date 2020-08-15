@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    文本角标-->
+    <declare-styleable name="Text_Badge">
+        <attr name="nbg_color" format="color" />
+        <attr name="nbg_padding" format="dimension" />
+    </declare-styleable>
+    <!--    图片角标-->
+    <declare-styleable name="Icon_Badge">
+        <attr name="iconbadge_textcolor" format="color" />
+        <attr name="iconbadge_textbg" format="color" />
+        <attr name="iconbadge_textsize" format="dimension" />
+        <attr name="iconbadge_drawable" format="reference" />
+    </declare-styleable>
+    <!--    图标-文字控件 目前上下布局-->
+    <declare-styleable name="Text_Icon">
+        <attr name="icon_drawable" format="reference" />
+    </declare-styleable>
+    <!--    文本关键字控件-->
+    <declare-styleable name="Text_Value">
+        <attr name="value_keycolor" format="color" />
+        <attr name="value_keysize" format="dimension" />
+        <attr name="value_keyword" format="string" />
+    </declare-styleable>
+    <!--    文本叶子背景控件-->
+    <declare-styleable name="Text_Leaf">
+        <attr name="leaf_textcolor" format="color" />
+        <attr name="leaf_textsize" format="dimension" />
+        <attr name="leaf_textword" format="string" />
+        <attr name="leaf_bgcolor" format="color" />
+    </declare-styleable>
+    <!--Switch开关属性-->
+    <!--开关属性-->
+    <declare-styleable name="sswitch_styleable">
+        <!--通过属性GradientDrawable的形式 _s为按下状态-->
+        <!--背景-->
+        <attr name="s_track_bg_color" format="color"></attr>
+        <attr name="s_track_bg_s_color" format="color"></attr>
+        <attr name="s_track_stroke_color" format="color"></attr>
+        <attr name="s_track_stroke_s_color" format="color"></attr>
+        <attr name="s_track_corner_radius" format="dimension"></attr>
+
+        <!--开关-->
+        <attr name="s_thumb_bg_color" format="color"></attr>
+        <attr name="s_thumb_bg_s_color" format="color"></attr>
+        <attr name="s_thumb_stroke_color" format="color"></attr>
+        <attr name="s_thumb_stroke_s_color" format="color"></attr>
+        <attr name="s_thumb_size" format="dimension"></attr>
+
+        <!--设置thumb特殊的宽度-如果设置了这个宽度，则不再是s_thumb_size作为宽度-->
+        <attr name="s_thumb_special_w" format="dimension"></attr>
+
+        <!--图片的形式设置-->
+        <attr name="s_track_drawble" format="reference"></attr>
+        <attr name="s_track_s_drawble" format="reference"></attr>
+        <attr name="s_thumb_drawble" format="reference"></attr>
+        <attr name="s_thumb_s_drawble" format="reference"></attr>
+    </declare-styleable>
+
+    <!--    走路进度条-->
+    <declare-styleable name="step_progress_styleable">
+        <attr name="s_step_people" format="reference"></attr>
+        <attr name="s_stepprogress_color" format="color"></attr>
+        <attr name="s_stepprogress_s_color" format="color"></attr>
+        <attr name="s_stepprogress_bg_color" format="color"></attr>
+        <attr name="s_step_tip_color" format="color" />
+        <attr name="s_step_tip_size" format="dimension" />
+    </declare-styleable>
+    <!--    走路环状进度-->
+    <declare-styleable name="gift_progress_styleable">
+        <attr name="s_gift_circle_color" format="color"></attr>
+        <attr name="s_gift_circle_s_color" format="color"></attr>
+        <attr name="s_gift_outcircle_color" format="color"></attr>
+    </declare-styleable>
+    <!--    Tableyout属性-->
+    <declare-styleable name="hl_tablatyou_styleable">
+        <attr name="s_tab_support_badge" format="boolean"></attr>
+        <attr name="s_tab_text_size" format="dimension" />
+        <attr name="s_tab_text_selected_size" format="dimension" />
+    </declare-styleable>
+    <!--    把原生CircleImageView导出来用-->
+    <declare-styleable name="CircleImageViewGoogle">
+        <attr name="civ_border_width" format="dimension" />
+        <attr name="civ_border_color" format="color" />
+        <attr name="civ_border_overlay" format="boolean" />
+        <attr name="civ_circle_background_color" format="color" />
+    </declare-styleable>
+    <!--    左右文本，一行两列控件-->
+    <declare-styleable name="ColumnRow_Value">
+        <attr name="left_texttip" format="string" />
+        <attr name="right_texttip" format="string" />
+        <attr name="left_textcolor" format="color" />
+        <attr name="right_textcolor" format="color" />
+        <attr name="left_textsize" format="dimension" />
+        <attr name="right_textsize" format="dimension" />
+    </declare-styleable>
+    <!--    平移图片控件-->
+    <declare-styleable name="Translate_ImageViews">
+        <attr name="late1" format="reference"></attr>
+        <attr name="late2" format="reference"></attr>
+    </declare-styleable>
+    <!--    左侧图标，右侧文本控件-->
+    <declare-styleable name="IconL_TextR">
+        <attr name="it_left_icon" format="reference"></attr>
+        <attr name="it_right_text" format="string"></attr>
+        <attr name="it_right_textcolor" format="color" />
+        <attr name="it_right_textsize" format="dimension" />
+    </declare-styleable>
+</resources>

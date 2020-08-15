@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">modules_login</string>
+
+    <string name="register_tip"><u>没有账号，点击注册！</u></string>
+</resources>

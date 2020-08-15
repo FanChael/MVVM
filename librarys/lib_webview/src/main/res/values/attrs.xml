@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    基本属性-->
+    <declare-styleable name="Progress_Bar">
+        <!--声明我们的属性，名称为radius,取值类型为尺寸类型（dp,px等）-->
+        <attr name="s_progress_corner_radius" format="dimension"></attr>
+        <!--进度条属性-->
+        <attr name="s_progress_bg_color" format="color"></attr>
+        <attr name="s_progress_color" format="color"></attr>
+        <attr name="s_progress_h" format="dimension"></attr>
+    </declare-styleable>
+</resources>

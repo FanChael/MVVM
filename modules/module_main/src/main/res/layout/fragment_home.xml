@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!--    暂时不想xml里面写东东-->
+    <data>
+
+        <variable
+            name="clickHandler"
+            type="com.hl.modules_main.view.event.HomeEventHandler" />
+    </data>
+
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
+        android:id="@+id/fh_smartRefresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <!--                步数区域-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorPrimary">
+
+                    <!--                    顶部背景图片-->
+                    <com.hl.lib_miniui.view.imageview.TranslateImageViews
+                        android:id="@+id/fh_walk_bg"
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        app:late1="@drawable/home_banner_bg01"
+                        app:late2="@drawable/home_banner_bg02"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/fh_walk_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="你运动 我送礼"
+                        android:textColor="@color/white"
+                        android:textSize="18sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <!--                    今日步数-数字高亮-->
+                    <com.hl.lib_miniui.view.texts.Text_Value
+                        android:id="@+id/fh_stepCounter"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="40dp"
+                        android:gravity="center"
+                        android:text="今日3918步数"
+                        android:textColor="@color/white"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/fh_walk_title"
+                        app:value_keycolor="@color/yellow_a"
+                        app:value_keysize="25sp"
+                        app:value_keyword="3918" />
+
+                    <!--                    签到送礼-->
+                    <com.hl.lib_miniui.view.texts.Text_Icon
+                        android:id="@+id/fh_signTi"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="10dp"
+                        android:orientation="vertical"
+                        android:text="签到送礼"
+                        android:textColor="@color/white_icon"
+                        android:textSize="10sp"
+                        app:icon_drawable="@drawable/home_icon_sign"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/fh_walk_title" />
+
+                    <!--                    领取礼物-->
+                    <com.hl.lib_miniui.view.texts.Text_Icon_Badge
+                        android:id="@+id/fh_getGift"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:layout_marginRight="10dp"
+                        android:orientation="vertical"
+                        android:onClick="@{()->clickHandler.gotoShoppingCar()}"
+                        android:text="领取礼物"
+                        android:textColor="@color/white_icon"
+                        android:textSize="10sp"
+                        app:icon_drawable="@drawable/home_icon_gift"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/fh_signTi" />
+
+                    <!--                    抽奖闯关-->
+                    <com.hl.lib_miniui.view.texts.Text_Icon_Badge
+                        android:id="@+id/fh_lotterGift"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="21dp"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="vertical"
+                        android:text="抽奖闯关"
+                        android:textColor="@color/white_icon"
+                        android:textSize="10sp"
+                        app:icon_drawable="@drawable/home_icon_lottery"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/fh_signShareGift" />
+
+                    <!--                    分享得礼-->
+                    <com.hl.lib_miniui.view.texts.Text_Icon
+                        android:id="@+id/fh_signShareGift"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="12dp"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="vertical"
+                        android:onClick="@{() -> clickHandler.shareGift()}"
+                        android:text="分享得礼"
+                        android:textColor="@color/white_icon"
+                        android:textSize="10sp"
+                        app:icon_drawable="@drawable/home_icon_share"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <!--                    跑步信息-->
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/fh_signStepInfo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="36dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/fh_stepCounter">
+
+                        <ViewStub
+                            android:id="@+id/fh_signStepInfoLayout"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout="@layout/fragment_home_step_info" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    <!--                    小人-->
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/fh_signStepPeople"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="44dp"
+                        android:src="@drawable/walk"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/fh_signStepInfo" />
+
+                    <!--                    音乐-->
+                    <com.hl.lib_media.view.MusicLayout
+                        android:id="@+id/fh_musicRoot"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="6dp"
+                        android:layout_marginBottom="12dp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toStartOf="@+id/fh_lotterGift"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/fh_signStepPeople" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--                任务进度区域-->
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="10dp">
+
+                    <TextView
+                        android:id="@+id/fh_getProduct"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="即将到手:"
+                        android:textColor="#ff333333"
+                        android:textSize="15sp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text="华为p30华为p30华为华为p30华为p30华为华为p30华为p30华为"
+                        android:textColor="#ff67808e"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/fh_getProduct"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/fh_getProduct" />
+
+                    <!--                    奖品进度-->
+                    <com.hl.lib_miniui.view.progress.GiftProgress
+                        android:id="@+id/fh_GiftProgress"
+                        android:layout_width="98dp"
+                        android:layout_height="98dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="20dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/fh_getProduct"
+                        app:s_gift_circle_color="#FFE5E5E5"
+                        app:s_gift_circle_s_color="#FF2C97EE"
+                        app:s_gift_outcircle_color="#FF7ABBED" />
+
+                    <!--                    奖品进度百分比-->
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/fh_GiftProgressPercent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="65%"
+                        android:textColor="@color/deep_gray"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/fh_GiftProgress"
+                        app:layout_constraintEnd_toEndOf="parent" />
+
+                    <!--                    走路进度条-->
+                    <com.hl.lib_miniui.view.progress.StepProgress
+                        android:id="@+id/fh_StepProgress"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintEnd_toStartOf="@+id/fh_GiftProgress"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/fh_getProduct"
+                        app:s_step_people="@drawable/home_walk_01"
+                        app:s_step_tip_color="#ff999999"
+                        app:s_step_tip_size="12sp"
+                        app:s_stepprogress_bg_color="#fff0f6fb"
+                        app:s_stepprogress_color="#ff67808e"
+                        app:s_stepprogress_s_color="#fff9cb29" />
+
+                    <!--                    加速头像 宽度 = 高度 * N-->
+                    <com.hl.lib_miniui.view.numbers.RoundImageList
+                        android:id="@+id/fh_headerLisst"
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_marginTop="10dp"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/fh_GiftProgress" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/fh_friendNumber"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:ellipsize="end"
+                        android:singleLine="true"
+                        android:text="已有8位好友为您助力"
+                        android:textColor="@color/deep_gray"
+                        android:textSize="12sp"
+                        app:layout_constraintBottom_toBottomOf="@+id/fh_headerLisst"
+                        app:layout_constraintEnd_toStartOf="@+id/fh_SpeedUp"
+                        app:layout_constraintStart_toEndOf="@+id/fh_headerLisst"
+                        app:layout_constraintTop_toTopOf="@+id/fh_headerLisst" />
+
+                    <!--                    加速按钮-->
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/fh_SpeedUp"
+                        style="@style/MaterialComponents.Button"
+                        android:layout_width="wrap_content"
+                        android:layout_height="28dp"
+                        android:gravity="center"
+                        android:text="立即加速"
+                        android:textColor="@color/white"
+                        android:textSize="14sp"
+                        app:backgroundTint="#FF3098EE"
+                        app:layout_constraintBottom_toBottomOf="@+id/fh_headerLisst"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="@+id/fh_headerLisst" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:id="@+id/fh_moreTipTv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="14dp"
+                        android:text="上拉步数挑战更多礼物"
+                        android:textColor="@color/deeps_gray"
+                        android:textSize="12sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/fh_headerLisst" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/home_icon_pull"
+                        app:layout_constraintBottom_toBottomOf="@+id/fh_moreTipTv"
+                        app:layout_constraintStart_toEndOf="@+id/fh_moreTipTv"
+                        app:layout_constraintTop_toTopOf="@+id/fh_moreTipTv" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <!--        自定义轮播-->
+                <!--        app:stokeSize="3dp" 如果不设置/0dp，则没有边框-->
+                <!--                android:background="@color/colorPrimaryDark"-->
+                <!--                app:indicatorType="DOT_RIGHT" 不设置dot则没有-->
+                <com.hl.lib_banner.view.BannerVP2
+                    android:id="@+id/fh_bvp2"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_marginLeft="15dp"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginRight="15dp"
+                    app:cornerColor="@color/little_gray"
+                    app:dotColor="@color/little_gray"
+                    app:dotRadius="6dp"
+                    app:dotSelectColor="@color/app_main_activatedcolor"
+                    app:dotSpace="10dp"
+                    app:orientation="horizontal"
+                    app:stokeSize="0dp" />
+
+                <!--                列表区域-->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/fh_homeListRv"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+</layout>

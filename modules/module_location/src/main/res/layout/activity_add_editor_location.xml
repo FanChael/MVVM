@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="locationEditor"
+            type="com.hl.module_location.view.event.LocationAddEditorEventHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.AddEditorLocationActivity">
+
+        <!--            收货人-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/adel_nameRoot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="15dp"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/adel_nameTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="收货人"
+                android:textColor="@color/black_little"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/adel_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:background="@null"
+                android:hint="请填写收货人姓名"
+                android:inputType="textPersonName"
+                android:lines="1"
+                android:maxLength="18"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/adel_nameTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/adel_nameTitle"
+                app:layout_constraintTop_toTopOf="@+id/adel_nameTitle" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="19dp"
+                android:background="@color/deep_more_gray"
+                app:layout_constraintEnd_toEndOf="@+id/adel_name"
+                app:layout_constraintStart_toStartOf="@+id/adel_nameTitle"
+                app:layout_constraintTop_toBottomOf="@+id/adel_name" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--            手机号码-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/adel_phoneRoot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="15dp"
+            app:layout_constraintTop_toBottomOf="@+id/adel_nameRoot">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/adel_phoneTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="手机号码"
+                android:textColor="@color/black_little"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/adel_phone"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:background="@null"
+                android:hint="请填写收货人手机号"
+                android:inputType="phone"
+                android:lines="1"
+                android:maxLength="11"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/adel_phoneTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/adel_phoneTitle"
+                app:layout_constraintTop_toTopOf="@+id/adel_phoneTitle" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="19dp"
+                android:background="@color/deep_more_gray"
+                app:layout_constraintEnd_toEndOf="@+id/adel_phone"
+                app:layout_constraintStart_toStartOf="@+id/adel_phoneTitle"
+                app:layout_constraintTop_toBottomOf="@+id/adel_phone" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--            所在地区-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/adel_locationRoot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="15dp"
+            app:layout_constraintTop_toBottomOf="@+id/adel_phoneRoot">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/adel_locationTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="所在地区"
+                android:textColor="@color/black_little"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/adel_location"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:hint="省市区县、乡镇等"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/adel_locationTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/adel_locationTitle"
+                app:layout_constraintTop_toTopOf="@+id/adel_locationTitle" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/adel_locationIcon"
+                android:layout_width="wrap_content"
+                android:onClick="@{() -> locationEditor.locationChoose()}"
+                android:layout_height="wrap_content"
+                android:src="@drawable/add_icon_add"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="19dp"
+                android:background="@color/deep_more_gray"
+                app:layout_constraintEnd_toEndOf="@+id/adel_locationIcon"
+                app:layout_constraintStart_toStartOf="@+id/adel_locationTitle"
+                app:layout_constraintTop_toBottomOf="@+id/adel_location" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--            详细地址-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/adel_placeRoot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="15dp"
+            app:layout_constraintTop_toBottomOf="@+id/adel_locationRoot">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/adel_placeTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="详细地址"
+                android:textColor="@color/black_little"
+                android:textSize="15sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/adel_place"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="40dp"
+                android:background="@null"
+                android:hint="街道、楼牌号等"
+                android:inputType="text"
+                android:lines="2"
+                android:textSize="15sp"
+                app:layout_constraintBottom_toBottomOf="@+id/adel_placeTitle"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/adel_placeTitle"
+                app:layout_constraintTop_toTopOf="@+id/adel_placeTitle" />
+
+            <View
+                android:layout_width="0dp"
+                android:layout_height="1dp"
+                android:layout_marginTop="19dp"
+                android:background="@color/deep_more_gray"
+                app:layout_constraintEnd_toEndOf="@+id/adel_place"
+                app:layout_constraintStart_toStartOf="@+id/adel_placeTitle"
+                app:layout_constraintTop_toBottomOf="@+id/adel_place" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:id="@+id/adel_placeRootLine"
+            android:layout_width="match_parent"
+            android:layout_height="10dp"
+            android:background="@color/deep_more_gray"
+            app:layout_constraintTop_toBottomOf="@+id/adel_placeRoot" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:text="标签"
+            android:textColor="@color/black_little"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/adel_research_choose"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/adel_research_choose" />
+
+        <!--        属性标签-->
+        <com.hl.lib_miniui.view.radiogroup.LineWrapNoFoldRadioGroup
+            android:id="@+id/adel_research_choose"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/adel_placeRootLine">
+
+            <RadioButton
+                android:id="@+id/ae_research_a"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:layout_weight="1"
+                android:background="@drawable/radio_singlechoose_green_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:text="家"
+                android:textColor="@color/text_color_white_black_selector"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/ae_research_b"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/radio_singlechoose_green_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:text="公司"
+                android:textColor="@color/text_color_white_black_selector"
+                android:textSize="15sp" />
+
+            <RadioButton
+                android:id="@+id/ae_research_c"
+                android:layout_width="wrap_content"
+                android:layout_height="28dp"
+                android:layout_marginLeft="10dp"
+                android:layout_weight="1"
+                android:background="@drawable/radio_singlechoose_green_selector"
+                android:button="@null"
+                android:gravity="center"
+                android:text="学校"
+                android:textColor="@color/text_color_white_black_selector"
+                android:textSize="15sp" />
+        </com.hl.lib_miniui.view.radiogroup.LineWrapNoFoldRadioGroup>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/adel_defaultPlaceTip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="30dp"
+            android:text="设置默认地址"
+            android:textColor="@color/black_little"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/adel_research_choose" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/adel_defaultPlaceTipExtern"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="14dp"
+            android:text="提醒：每次下单会默认推荐使用该地址"
+            android:textColor="@color/black_little"
+            android:textSize="12sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/adel_defaultPlaceTip" />
+
+        <!--        是否是默认地址的开关-->
+        <com.hl.lib_miniui.view.toggle.SToggleButton
+            android:id="@+id/adel_setDefaultState"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/toggle_drawable_selector"
+            android:textOff="@null"
+            android:textOn="@null"
+            app:layout_constraintBottom_toBottomOf="@+id/adel_defaultPlaceTipExtern"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/adel_defaultPlaceTip" />
+
+        <!--                    添加收货地址-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/adel_saveAddress"
+            style="@style/MaterialComponents.Big.Button"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="35dp"
+            android:layout_marginRight="15dp"
+            android:gravity="center"
+            android:text="保存"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:backgroundTint="#FF3098EE"
+            app:layout_constraintTop_toBottomOf="@+id/adel_setDefaultState" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

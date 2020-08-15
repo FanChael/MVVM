@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="addrEvent"
+            type="com.hl.module_location.view.event.LocationListEventHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".LocationListActivity">
+
+        <com.scwang.smart.refresh.layout.SmartRefreshLayout
+            android:id="@+id/all_smartRefreshLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginBottom="10dp"
+            app:layout_constraintBottom_toTopOf="@+id/all_addAddress"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/all_locationListRv"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="15dp" />
+        </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+        <!--                    添加收货地址-->
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/all_addAddress"
+            style="@style/MaterialComponents.Big.Button"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:onClick="@{() -> addrEvent.newAddress()}"
+            android:layout_marginBottom="10dp"
+            android:gravity="center"
+            android:text="+  新建收货地址"
+            android:textColor="@color/white"
+            android:textSize="14sp"
+            app:backgroundTint="#FF3098EE"
+            app:layout_constraintBottom_toBottomOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

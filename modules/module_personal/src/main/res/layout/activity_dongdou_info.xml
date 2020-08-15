@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="dongdouInfoEvent"
+            type="com.hl.modules_personal.view.event.DongDouInfoEventHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.activity.DongdouInfoActivity">
+
+        <!--        动豆余额-->
+        <LinearLayout
+            android:id="@+id/addi_yueRoot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bean_bg_data"
+            android:orientation="vertical"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="35dp"
+                android:text="余额"
+                android:textColor="#ffffffff"
+                android:textSize="13sp" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="13dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/addi_yueNumber"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1200.0"
+                    android:textColor="#ffffffff"
+                    android:textSize="22sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="6dp"
+                    android:text="动豆"
+                    android:textColor="#ffffffff"
+                    android:textSize="13sp" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!--        动豆邀请-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/addi_inviteRoot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/gray_solid_little_cornner_shape"
+            android:paddingBottom="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/addi_yueRoot">
+
+            <TextView
+                android:id="@+id/addi_inviteTip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:text="邀请好友得动豆"
+                android:textColor="@color/black_little"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/addi_inviteDes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:text="人品越好，动豆越多"
+                android:textColor="@color/deep_gray"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addi_inviteTip" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/addi_inviteBtn"
+                style="@style/MaterialComponents.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginRight="15dp"
+                android:gravity="center"
+                android:text="去邀请"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:backgroundTint="#FF3098EE"
+                app:layout_constraintBottom_toBottomOf="@+id/addi_inviteDes"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/addi_inviteTip" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--        动豆充值-->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/addi_chargeRoot"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="15dp"
+            android:background="@drawable/gray_solid_little_cornner_shape"
+            android:paddingBottom="20dp"
+            app:layout_constraintTop_toBottomOf="@+id/addi_inviteRoot">
+
+            <TextView
+                android:id="@+id/addi_chargeTip"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="20dp"
+                android:text="动豆充值"
+                android:textColor="@color/black_little"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/addi_chargeDes"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginTop="10dp"
+                android:text="充100送10，有钱任性"
+                android:textColor="@color/deep_gray"
+                android:textSize="12sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/addi_chargeTip" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/addi_chargeBtn"
+                style="@style/MaterialComponents.Button"
+                android:layout_width="wrap_content"
+                android:layout_height="32dp"
+                android:layout_marginRight="15dp"
+                android:gravity="center"
+                android:onClick="@{() -> dongdouInfoEvent.toDongDouChage()}"
+                android:text="去充值"
+                android:textColor="@color/white"
+                android:textSize="14sp"
+                app:backgroundTint="#FF3098EE"
+                app:layout_constraintBottom_toBottomOf="@+id/addi_chargeDes"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/addi_chargeTip" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--        动豆说明-->
+        <View
+            android:id="@+id/addi_dongdouHowLine"
+            android:layout_width="4dp"
+            android:layout_height="0dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/green_top_bottom_corner_shape"
+            app:layout_constraintBottom_toBottomOf="@+id/addi_dongdouHow"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/addi_dongdouHow" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/addi_dongdouHow"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="40dp"
+            android:text="动豆应用"
+            android:textColor="@color/black_little"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@+id/addi_dongdouHowLine"
+            app:layout_constraintTop_toBottomOf="@+id/addi_chargeRoot" />
+
+        <com.hl.lib_miniui.view.texts.Icon_Text
+            android:id="@+id/addi_des1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginRight="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/addi_dongdouHow"
+            app:layout_constraintTop_toBottomOf="@+id/addi_dongdouHow"
+            app:it_left_icon="@drawable/bean_img_pay"
+            app:it_right_text="动豆可以抵扣运费！"
+            app:it_right_textcolor="@color/deep_gray"
+            app:it_right_textsize="14sp" />
+
+        <com.hl.lib_miniui.view.texts.Icon_Text
+            android:id="@+id/addi_des2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="13dp"
+            android:layout_marginRight="15dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/addi_dongdouHow"
+            app:layout_constraintTop_toBottomOf="@+id/addi_des1"
+            app:it_left_icon="@drawable/bean_img_goods"
+            app:it_right_text="动豆可进动豆商城进行产品兑换！"
+            app:it_right_textcolor="@color/deep_gray"
+            app:it_right_textsize="14sp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

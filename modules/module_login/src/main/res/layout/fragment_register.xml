@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="loginHandler"
+            type="com.hl.modules_login.view.event.RegisterNavEventHandler" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".view.fragment.RegisterFragment">
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/fr_topCard"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+            app:cardBackgroundColor="@color/card_bg"
+            app:cardCornerRadius="10dp"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/fr_commonLogo"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:layout_marginTop="20dp"
+                    android:src="@drawable/chicken_icon"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/fr_userNameTL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:theme="@style/EditTextStyle"
+                    app:boxBackgroundColor="@color/textinput_bg"
+                    app:counterMaxLength="25"
+                    app:layout_constraintTop_toBottomOf="@+id/fr_commonLogo"
+                    app:startIconDrawable="@drawable/user_tip_icon">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/fr_userNameEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="用户名"
+                        android:textSize="18sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/fr_userPassTL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/EditTextStyle"
+                    app:boxBackgroundColor="@color/textinput_bg"
+                    app:counterMaxLength="18"
+                    app:errorEnabled="true"
+                    app:layout_constraintTop_toBottomOf="@+id/fr_userNameTL"
+                    app:passwordToggleEnabled="true"
+                    app:startIconDrawable="@drawable/pass_tip_icon">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/fr_userPassEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="密码"
+                        android:inputType="textPassword"
+                        android:textSize="18sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/fr_userRePassTL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/EditTextStyle"
+                    app:boxBackgroundColor="@color/textinput_bg"
+                    app:counterMaxLength="18"
+                    app:errorEnabled="true"
+                    app:layout_constraintTop_toBottomOf="@+id/fr_userPassTL"
+                    app:passwordToggleEnabled="true"
+                    app:startIconDrawable="@drawable/pass_tip_icon">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/fr_userRePassEt"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="再次输入密码"
+                        android:inputType="textPassword"
+                        android:textSize="18sp" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/fr_loginTv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:clickable="true"
+                    android:onClick="@{(view)->loginHandler.clickLogin(view)}"
+                    android:text="点击注册！"
+                    android:textSize="25sp"
+                    android:theme="@style/AppTheme.Button"
+                    app:layout_constraintTop_toBottomOf="@+id/fr_userRePassTL" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.cardview.widget.CardView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout
+        >
+</layout>
